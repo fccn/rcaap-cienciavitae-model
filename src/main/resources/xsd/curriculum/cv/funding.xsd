@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cienciavitae.pt/ns/funding" xmlns:funding="http://www.cienciavitae.pt/ns/funding"
+    xmlns:common="http://www.cienciavitae.pt/ns/common" xmlns:common-enum="http://www.cienciavitae.pt/ns/common-enum">
+
+    <xs:annotation>
+        <xs:documentation>...</xs:documentation>
+    </xs:annotation>
+
+    <xs:import namespace="http://www.cienciavitae.pt/ns/common" schemaLocation="../common/common.xsd"/>
+    <xs:import namespace="http://www.cienciavitae.pt/ns/common-enum" schemaLocation="../common/common-enum.xsd"/>
+
+
+    <xs:element name="fundings">
+        <xs:annotation>
+            <xs:documentation>Container for the list of Fundings associated with the researcher.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="common:container-lastdate-ctype">
+                    <xs:sequence>
+                        <xs:element ref="funding:funding" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="funding">
+        <xs:annotation>
+            <xs:documentation>Funding element.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="common:extended-record-ctype" >
+                    <xs:sequence>
+                        <xs:element name="funding-category" type="funding:funding-category-ctype"/>
+                        <xs:element name="project-title" type="common:string-300-stype"/>
+                        <xs:element name="project-description" type="common:string-4000-stype" minOccurs="0"/>
+                        <xs:element name="start-date" type="common:date-ctype" minOccurs="0"/>
+                        <xs:element name="end-date" type="common:date-ctype" minOccurs="0"/>
+                        <xs:element name="start-date-participation" type="common:date-ctype"/>
+                        <xs:element name="end-date-participation" type="common:date-ctype" minOccurs="0"/>
+                        <xs:element name="status" type="funding:status-ctype" minOccurs="0"/>
+                        <xs:element ref="common:funding-institutions" minOccurs="0"/>
+                        <xs:element name="program-name" type="common:string-255-stype" minOccurs="0"/>
+                        <xs:element name="year-awarded" type="common:year-stype" minOccurs="0"/>
+                        <xs:element name="investigation-role" type="funding:investigation-role-ctype" minOccurs="0"/>
+                        <xs:element name="investigation-role-description" type="funding:investigation-role-description-ctype" minOccurs="0"/>
+                        <xs:element ref="common:institutions" minOccurs="0"/>
+                        <xs:group ref="funding:funding-group">
+                        	<xs:annotation>
+                                <xs:documentation>Fill if "funding:funding-category[@code = 'C']"</xs:documentation>
+                            </xs:annotation>
+                        </xs:group>
+                        <xs:element name="funding-identifiers" type="funding:funding-identifiers-ctype" minOccurs="0"/>
+                        <xs:element name="investigators" type="funding:investigators-ctype" minOccurs="0">
+                            <xs:unique name="investigators-constraint">
+                                <xs:selector xpath="funding:investigator"/>
+                                <xs:field xpath="."/>
+                            </xs:unique>
+                        </xs:element>
+                        <xs:element ref="common:research-classifications" minOccurs="0"/>
+                        <xs:element ref="common:keywords" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="funding-category-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:funding-category-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="status-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:funding-status-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+	<xs:complexType name="investigation-role-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:funding-investigation-role-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:complexType name="investigation-role-description-ctype">
+    	<xs:simpleContent>
+    		<xs:extension base="common:string-150-stype">
+	    		<xs:annotation>
+		       		<xs:documentation>Fill only if "funding:investigation-role-ctype[@code = 'OT']"</xs:documentation>
+		   		</xs:annotation>
+    		</xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="funding-identifiers-ctype">
+        <xs:complexContent>
+            <xs:extension base="common:container-ctype">
+                <xs:sequence>
+                    <xs:element name="funding-identifier" type="funding:funding-identifier-ctype" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+	<xs:complexType name="funding-identifier-ctype">
+		<xs:sequence>
+			<xs:element name="reference" type="common:string-255-stype" minOccurs="1" maxOccurs="1" />
+			<xs:element name="url" type="common:string-uri-stype" minOccurs="0" maxOccurs="1" />		
+			<xs:element name="relationship-type" type="common:identifier-relationship-type-ctype"  minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+
+    <xs:complexType name="investigators-ctype">
+        <xs:complexContent>
+            <xs:extension base="common:container-ctype">
+                <xs:sequence>
+                    <xs:element name="investigator" type="funding:investigator-ctype" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:complexType name="investigator-ctype">
+        <xs:simpleContent>
+            <xs:extension base="common:string-120-stype">
+            	<xs:attribute name="ciencia-id" type="common:string-14-stype"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="total-amount-ctype">
+        <xs:simpleContent>
+            <xs:extension base="common:string-100-stype">
+                <xs:attribute name="currency" type="common-enum:iso-4217-currency-enum"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:group name="funding-group">
+        <xs:sequence>
+            <xs:element name="total-amount" type="funding:total-amount-ctype" minOccurs="0"/>
+            <xs:element name="competitive" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="funding-renewable" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+    </xs:group>
+</xs:schema>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cienciavitae.pt/ns/version" 
+	 xmlns:version="http://www.cienciavitae.pt/ns/version" xmlns:common="http://www.cienciavitae.pt/ns/common">
+
+	<xs:annotation>
+    	<xs:documentation>...</xs:documentation>
+    </xs:annotation>
+    
+    <xs:import namespace="http://www.cienciavitae.pt/ns/common" schemaLocation="../common/common.xsd"/>
+    
+    <xs:element name="versions">
+        <xs:annotation>
+            <xs:documentation>Container for the list of versions shared by user.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="common:container-ctype">
+                    <xs:sequence>
+                        <xs:element ref="version:version" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="version">
+        <xs:annotation>
+            <xs:documentation>Version element.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="common:version-container-ctype">
+                 	 <xs:sequence>
+                    	<xs:element name="guid" type="common:string-50-stype" minOccurs="0"/>
+                    	<xs:element name="template" type="version:template-version-ctype"/>
+                		<xs:element name="title" type="common:string-50-stype" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+	<xs:complexType name="template-version-ctype">
+		<xs:simpleContent>
+			<xs:extension base="common:string-50-stype">
+				<xs:attribute name="code" type="common:string-50-stype"	use="required" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+</xs:schema>

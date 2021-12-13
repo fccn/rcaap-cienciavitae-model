@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+   Please use xjc command to generate the java classes (POJO) based on this schema file 
+   # xjc -d ./src/main/java/ -b ./src/main/resources/cv-binding.xjc ./src/main/resources/xsd
+-->
+
+<jaxb:bindings xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+	xmlns:namespace="http://jaxb2-commons.dev.java.net/namespace-prefix"
+	jaxb:version="2.1">
+
+	<jaxb:bindings schemaLocation="*">
+	</jaxb:bindings>
+
+</jaxb:bindings> 

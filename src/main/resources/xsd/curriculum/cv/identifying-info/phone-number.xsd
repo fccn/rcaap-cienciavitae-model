@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cienciavitae.pt/ns/phone-number" xmlns:phone-number="http://www.cienciavitae.pt/ns/phone-number"
+    xmlns:common="http://www.cienciavitae.pt/ns/common" xmlns:common-enum="http://www.cienciavitae.pt/ns/common-enum">
+
+    <xs:annotation>
+        <xs:documentation>...</xs:documentation>
+    </xs:annotation>
+
+    <xs:import namespace="http://www.cienciavitae.pt/ns/common" schemaLocation="../../common/common.xsd"/>
+    <xs:import namespace="http://www.cienciavitae.pt/ns/common-enum" schemaLocation="../../common/common-enum.xsd"/>
+
+
+    <xs:element name="phone-numbers">
+        <xs:annotation>
+            <xs:documentation>Container for the list of Phone Numbers associated with the researcher.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="common:container-ctype">
+                    <xs:sequence>
+                        <xs:element ref="phone-number:phone-number" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="phone-number">
+        <xs:annotation>
+            <xs:documentation>Phone Number element.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="common:record-ctype">
+                    <xs:sequence>
+                        <xs:element name="usage-type" type="common:contact-type-ctype"/>
+                        <xs:element name="phone-type" type="phone-number:phone-type-ctype"/>
+                        <xs:element name="country-code" type="common:string-10-stype" minOccurs="0"/>
+                        <xs:element name="local-number" type="common:string-10-stype"/>
+                        <xs:element name="extension" type="common:string-10-stype" minOccurs="0"/>
+                    </xs:sequence>
+                    <xs:attribute name="preferred-phone-number" type="xs:boolean" default="false"/>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="phone-type-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:phone-type-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cienciavitae.pt/ns/author-identifier"
+    xmlns:author-identifier="http://www.cienciavitae.pt/ns/author-identifier" xmlns:common="http://www.cienciavitae.pt/ns/common" xmlns:common-enum="http://www.cienciavitae.pt/ns/common-enum">
+
+    <xs:annotation>
+        <xs:documentation>...</xs:documentation>
+    </xs:annotation>
+
+    <xs:import namespace="http://www.cienciavitae.pt/ns/common" schemaLocation="../../common/common.xsd"/>
+    <xs:import namespace="http://www.cienciavitae.pt/ns/common-enum" schemaLocation="../../common/common-enum.xsd"/>
+
+
+    <xs:element name="author-identifiers">
+        <xs:annotation>
+            <xs:documentation>Container for the list of Author Identifiers associated with the researcher.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="common:container-ctype">
+                    <xs:sequence>
+                        <xs:element ref="author-identifier:author-identifier" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+        <xs:unique name="author-identifier-constraint">
+            <xs:selector xpath="author-identifier:author-identifier/author-identifier:identifier-type"/>
+            <xs:field xpath="@code"/>
+        </xs:unique>
+    </xs:element>
+
+    <xs:element name="author-identifier">
+        <xs:annotation>
+            <xs:documentation>Author Identifier element.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+        	<xs:complexContent>
+                <xs:extension base="common:record-ctype">
+		            <xs:sequence>
+		                <xs:element name="identifier-type" type="author-identifier:identifier-type-ctype"/>
+		                <xs:element name="identifier" type="common:string-255-stype"/>
+		            </xs:sequence>
+            	</xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="identifier-type-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:identifier-type-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+</xs:schema>

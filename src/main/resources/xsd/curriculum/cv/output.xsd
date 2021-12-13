@@ -1,0 +1,1643 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cienciavitae.pt/ns/output" xmlns:output="http://www.cienciavitae.pt/ns/output"
+    xmlns:common="http://www.cienciavitae.pt/ns/common" xmlns:common-enum="http://www.cienciavitae.pt/ns/common-enum">
+
+    <xs:annotation>
+        <xs:documentation>...</xs:documentation>
+    </xs:annotation>
+
+    <xs:import namespace="http://www.cienciavitae.pt/ns/common" schemaLocation="../common/common.xsd"/>
+    <xs:import namespace="http://www.cienciavitae.pt/ns/common-enum" schemaLocation="../common/common-enum.xsd"/>
+
+
+    <xs:element name="outputs">
+        <xs:annotation>
+            <xs:documentation>Container for the list of Outputs associated with the researcher.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="common:container-lastdate-ctype">
+                    <xs:sequence>
+                        <xs:element ref="output:output" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="output">
+        <xs:annotation>
+            <xs:documentation>Output element.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="common:extended-record-ctype">
+                    <xs:sequence>
+                        <xs:element name="output-category" type="output:output-category-ctype" minOccurs="0"/>
+                        <xs:element name="output-type" type="output:output-type-ctype"/>
+                        <xs:choice>
+                            <xs:element name="journal-article" type="output:journal-article-ctype"/>
+                            <xs:element name="journal-issue" type="output:journal-issue-ctype"/>
+                            <xs:element name="book" type="output:book-ctype"/>
+                            <xs:element name="edited-book" type="output:edited-book-ctype"/>
+                            <xs:element name="book-chapter" type="output:book-chapter-ctype"/>
+                            <xs:element name="book-review" type="output:book-review-ctype"/>
+                            <xs:element name="translation" type="output:translation-ctype"/>
+                            <xs:element name="dissertation" type="output:dissertation-ctype"/>
+                            <xs:element name="newspapper-article" type="output:newspapper-article-ctype"/>
+                            <xs:element name="newsletter-article" type="output:newsletter-article-ctype"/>
+                            <xs:element name="encyclopedia-entry" type="output:encyclopedia-entry-ctype"/>
+                            <xs:element name="magazine-article" type="output:magazine-article-ctype"/>
+                            <xs:element name="dictionary-entry" type="output:dictionary-entry-ctype"/>
+                            <xs:element name="report" type="output:report-ctype"/>
+                            <xs:element name="working-paper" type="output:working-paper-ctype"/>
+                            <xs:element name="manual" type="output:manual-ctype"/>
+                            <xs:element name="online-resource" type="output:online-resource-ctype"/>
+                            <xs:element name="test" type="output:test-ctype"/>
+                            <xs:element name="website" type="output:website-ctype"/>
+                            <xs:element name="conference-paper" type="output:conference-paper-ctype"/>
+                            <xs:element name="conference-abstract" type="output:conference-abstract-ctype"/>
+                            <xs:element name="conference-poster" type="output:conference-poster-ctype"/>
+                            <xs:element name="exhibition-catalogue" type="output:exhibition-catalogue-ctype"/>
+                            <xs:element name="preface-postface" type="output:preface-postface-ctype"/>
+                            <xs:element name="artistic-exhibition" type="output:artistic-exhibition-ctype"/>
+                            <xs:element name="audio-recording" type="output:audio-recording-ctype"/>
+                            <xs:element name="musical-composition" type="output:musical-composition-ctype"/>
+                            <xs:element name="musical-performance" type="output:musical-performance-ctype"/>
+                            <xs:element name="radio-tv-program" type="output:radio-tv-program-ctype"/>
+                            <xs:element name="script" type="output:script-ctype"/>
+                            <xs:element name="short-fiction" type="output:short-fiction-ctype"/>
+                            <xs:element name="theatric" type="output:theatric-ctype"/>
+                            <xs:element name="video-recording" type="output:video-recording-ctype"/>
+                            <xs:element name="visual-artwork" type="output:visual-artwork-ctype"/>
+                            <xs:element name="sound-design" type="output:sound-design-ctype"/>
+                            <xs:element name="set-design" type="output:set-design-ctype"/>
+                            <xs:element name="light-design" type="output:light-design-ctype"/>
+                            <xs:element name="choreography" type="output:choreography-ctype"/>
+                            <xs:element name="curatorial-museum-exhibition" type="output:curatorial-museum-exhibition-ctype"/>
+                            <xs:element name="performance-art" type="output:performance-art-ctype"/>
+                            <xs:element name="patent" type="output:patent-ctype"/>
+                            <xs:element name="license" type="output:license-ctype"/>
+                            <xs:element name="disclosure" type="output:disclosure-ctype"/>
+                            <xs:element name="registered-copyright" type="output:registered-copyright-ctype"/>
+                            <xs:element name="trademark" type="output:trademark-ctype"/>
+                            <xs:element name="standard-or-policy" type="output:standard-or-policy-ctype"/>
+                            <xs:element name="invention" type="output:invention-ctype"/>
+                            <xs:element name="data-set" type="output:data-set-ctype"/>
+                            <xs:element name="litigation" type="output:litigation-ctype"/>
+                            <xs:element name="research-technique" type="output:research-technique-ctype"/>
+                            <xs:element name="spin-off-company" type="output:spin-off-company-ctype"/>
+                            <xs:element name="technical-standard" type="output:technical-standard-ctype"/>
+                            <xs:element name="other-output" type="output:other-output-ctype"/>
+                        </xs:choice>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="authors-list">
+        <xs:annotation>
+            <xs:documentation>Container for the list of coauthors associated with the output.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="common:container-ctype">
+                    <xs:sequence>
+                        <xs:element name="authors" type="common:authors-ctype"/>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:complexType name="journal-article-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P101']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="article-title" type="common:string-400-stype"/>
+            <xs:element name="journal" type="common:string-400-stype" minOccurs="0"/>
+            <xs:element name="volume" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="issue" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="page-range-from" type="common:string-20-stype" minOccurs="0"/>
+            <xs:element name="page-range-to" type="common:string-20-stype" minOccurs="0"/>
+            <xs:element name="refereed" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="open-access" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="publication-status" type="output:publication-status-ctype" minOccurs="0"/>
+            <xs:element name="publication-date" type="common:date-ctype"/>
+            <xs:element name="publication-location" type="output:publication-location-ctype" minOccurs="0"/>
+            <xs:element name="authoring-role" type="output:publication-role-ctype" minOccurs="0"/>
+            <xs:element name="url" type="common:string-uri-stype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="journal-article-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="journal-issue-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P102']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="issue-title" type="common:string-400-stype"/>
+            <xs:element name="journal" type="common:string-400-stype" minOccurs="0"/>
+            <xs:element name="volume" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="issue-number" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="number-of-pages" type="common:int-6-stype" minOccurs="0"/>
+            <xs:element name="refereed" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="publication-status" type="output:publication-status-ctype" minOccurs="0"/>
+            <xs:element name="publication-date" type="common:date-ctype"/>
+            <xs:element name="publication-location" type="output:publication-location-ctype" minOccurs="0"/>
+            <xs:element name="editing-role" type="output:publication-editor-role-ctype" minOccurs="0"/>
+            <xs:element name="url" type="common:string-uri-stype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="editors" type="output:authors-ctype">
+                <xs:unique name="journal-issue-editors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="book-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P103']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="title" type="common:string-400-stype"/>
+            <xs:element name="volume" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="edition" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="number-of-pages" type="common:int-6-stype" minOccurs="0"/>
+            <xs:element name="refereed" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="publication-status" type="output:publication-status-ctype" minOccurs="0"/>
+            <xs:element name="publication-year" type="common:year-stype"/>
+            <xs:element name="publication-location" type="output:publication-location-ctype" minOccurs="0"/>
+            <xs:element name="publisher" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="authoring-role" type="output:publication-role-ctype" minOccurs="0"/>
+            <xs:element name="url" type="common:string-uri-stype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="book-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="editors" type="output:authors-ctype" minOccurs="0">
+                <xs:unique name="book-editors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="edited-book-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P104']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="title" type="common:string-400-stype"/>
+            <xs:element name="volume" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="edition" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="number-of-pages" type="common:int-6-stype" minOccurs="0"/>
+            <xs:element name="refereed" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="publication-status" type="output:publication-status-ctype" minOccurs="0"/>
+            <xs:element name="publication-year" type="common:year-stype"/>
+            <xs:element name="publication-location" type="output:publication-location-ctype" minOccurs="0"/>
+            <xs:element name="publisher" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="editing-role" type="output:publication-role-ctype" minOccurs="0"/>
+            <xs:element name="url" type="common:string-uri-stype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="edited-book-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="editors" type="output:authors-ctype" minOccurs="0">
+                <xs:unique name="edited-book-editors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="book-chapter-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P105']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="chapter-title" type="common:string-400-stype"/>
+            <xs:element name="book-title" type="common:string-400-stype" minOccurs="0"/>
+            <xs:element name="book-volume" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="book-edition" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="chapter-page-range-from" type="common:string-20-stype" minOccurs="0"/>
+            <xs:element name="chapter-page-range-to" type="common:string-20-stype" minOccurs="0"/>
+            <xs:element name="refereed" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="publication-status" type="output:publication-status-ctype" minOccurs="0"/>
+            <xs:element name="publication-year" type="common:year-stype"/>
+            <xs:element name="publication-location" type="output:publication-location-ctype" minOccurs="0"/>
+            <xs:element name="book-publisher" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="authoring-role" type="output:publication-role-ctype" minOccurs="0"/>
+            <xs:element name="url" type="common:string-uri-stype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="book-chapter-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="editors" type="output:authors-ctype" minOccurs="0">
+                <xs:unique name="book-chapter-editors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="book-review-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P106']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="review-title" type="common:string-400-stype"/>
+            <xs:element name="published-in" type="common:string-400-stype" minOccurs="0"/>
+            <xs:element name="review-volume" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="review-issue" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="page-range-from" type="common:string-20-stype" minOccurs="0"/>
+            <xs:element name="page-range-to" type="common:string-20-stype" minOccurs="0"/>
+            <xs:element name="refereed" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="publication-status" type="output:publication-status-ctype" minOccurs="0"/>
+            <xs:element name="review-publication" type="output:review-publication-ctype" minOccurs="0"/>
+            <xs:element name="date-of-review-publication" type="common:date-ctype"/>
+            <xs:element name="review-publisher" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="url" type="common:string-uri-stype" minOccurs="0"/>
+            <xs:element name="book-title" type="common:string-400-stype" minOccurs="0"/>
+            <xs:element name="book-volume" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="book-edition" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="book-refereed" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="book-publication-year" type="common:year-stype" minOccurs="0"/>
+            <xs:element name="book-publication-location" type="output:publication-location-ctype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="book-review-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="translation-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P107']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="title" type="common:string-400-stype"/>
+            <xs:element name="series-title" type="common:string-400-stype" minOccurs="0"/>
+            <xs:element name="volume" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="number-of-volumes" type="common:int-6-stype" minOccurs="0"/>
+            <xs:element name="edition" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="number-of-pages" type="common:int-6-stype" minOccurs="0"/>
+            <xs:element name="publication-status" type="output:publication-status-ctype" minOccurs="0"/>
+            <xs:element name="publication-year" type="common:year-stype"/>
+            <xs:element name="publication-location" type="output:publication-location-ctype" minOccurs="0"/>
+            <xs:element name="publisher" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="url" type="common:string-uri-stype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="translation-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="dissertation-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P108']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="title" type="common:string-400-stype"/>
+            <xs:element name="number-of-volumes" type="common:int-6-stype" minOccurs="0"/>
+            <xs:element ref="common:institutions" minOccurs="0"/>
+            <xs:element name="degree-type" type="output:degree-type-ctype"/>
+            <xs:element name="classification" type="common:string-50-stype" minOccurs="0"/>
+            <xs:element name="completion-date" type="common:date-ctype"/>
+            <xs:element name="url" type="common:string-uri-stype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+            	<xs:unique name="dissertation-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="supervisors" type="common:supervisors-ctype" minOccurs="0">
+                <xs:unique name="supervisors-constraint">
+                    <xs:selector xpath="common:supervisor"/>
+                    <xs:field xpath="common:supervisor-name"/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="newspapper-article-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P110']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="article-title" type="common:string-400-stype"/>
+            <xs:element name="newspaper" type="common:string-400-stype" minOccurs="0"/>
+            <xs:element name="section" type="common:string-50-stype" minOccurs="0"/>
+            <xs:element name="volume" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="edition" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="page-range-from" type="common:string-20-stype" minOccurs="0"/>
+            <xs:element name="page-range-to" type="common:string-20-stype" minOccurs="0"/>
+            <xs:element name="publication-date" type="common:date-ctype"/>
+            <xs:element name="publication-location" type="output:publication-location-ctype" minOccurs="0"/>
+            <xs:element name="url" type="common:string-uri-stype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="newspapper-article-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="newsletter-article-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P111']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="article-title" type="common:string-400-stype"/>
+            <xs:element name="newsletter" type="common:string-400-stype" minOccurs="0"/>
+            <xs:element name="volume" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="issue" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="page-range-from" type="common:string-20-stype" minOccurs="0"/>
+            <xs:element name="page-range-to" type="common:string-20-stype" minOccurs="0"/>
+            <xs:element name="publication-date" type="common:date-ctype"/>
+            <xs:element name="publication-location" type="output:publication-location-ctype" minOccurs="0"/>
+            <xs:element name="url" type="common:string-uri-stype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="newsletter-article-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="encyclopedia-entry-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P112']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="entry-title" type="common:string-400-stype"/>
+            <xs:element name="encyclopedia-title" type="common:string-400-stype" minOccurs="0"/>
+            <xs:element name="volume" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="number-of-volumes" type="common:int-6-stype" minOccurs="0"/>
+            <xs:element name="edition" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="page-range-from" type="common:string-20-stype" minOccurs="0"/>
+            <xs:element name="page-range-to" type="common:string-20-stype" minOccurs="0"/>
+            <xs:element name="publication-status" type="output:publication-status-ctype" minOccurs="0"/>
+            <xs:element name="publication-year" type="common:year-stype"/>
+            <xs:element name="publication-location" type="output:publication-location-ctype" minOccurs="0"/>
+            <xs:element name="publisher" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="authoring-role" type="output:publication-role-ctype" minOccurs="0"/>
+            <xs:element name="url" type="common:string-uri-stype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="encyclopedia-entry-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="editors" type="output:authors-ctype" minOccurs="0">
+                <xs:unique name="encyclopedia-entry-editors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="magazine-article-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P113']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="article-title" type="common:string-400-stype"/>
+            <xs:element name="magazine" type="common:string-400-stype" minOccurs="0"/>
+            <xs:element name="volume" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="issue" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="page-range-from" type="common:string-20-stype" minOccurs="0"/>
+            <xs:element name="page-range-to" type="common:string-20-stype" minOccurs="0"/>
+            <xs:element name="publication-date" type="common:date-ctype"/>
+            <xs:element name="publication-location" type="output:publication-location-ctype" minOccurs="0"/>
+            <xs:element name="authoring-role" type="output:publication-role-ctype" minOccurs="0"/>
+            <xs:element name="url" type="common:string-uri-stype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="magazine-article-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="editors" type="output:authors-ctype" minOccurs="0">
+                <xs:unique name="magazine-article-editors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="dictionary-entry-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P114']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="entry-title" type="common:string-400-stype"/>
+            <xs:element name="dictionary-title" type="common:string-400-stype" minOccurs="0"/>
+            <xs:element name="volume" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="number-of-volumes" type="common:int-6-stype" minOccurs="0"/>
+            <xs:element name="edition" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="page-range-from" type="common:string-20-stype" minOccurs="0"/>
+            <xs:element name="page-range-to" type="common:string-20-stype" minOccurs="0"/>
+            <xs:element name="publication-status" type="output:publication-status-ctype" minOccurs="0"/>
+            <xs:element name="publication-year" type="common:year-stype"/>
+            <xs:element name="publication-location" type="output:publication-location-ctype" minOccurs="0"/>
+            <xs:element name="publisher" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="authoring-role" type="output:publication-role-ctype" minOccurs="0"/>
+            <xs:element name="url" type="common:string-uri-stype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="dictionary-entry-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="editors" type="output:authors-ctype" minOccurs="0">
+                <xs:unique name="dictionary-entry-editors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="report-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P115']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="report-title" type="common:string-400-stype"/>
+            <xs:element name="volume" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="number-of-pages" type="common:int-6-stype" minOccurs="0"/>
+            <xs:element ref="common:institutions" minOccurs="0"/>
+            <xs:element name="date-submitted" type="common:date-ctype"/>
+            <xs:element name="authoring-role" type="output:publication-role-ctype" minOccurs="0"/>
+            <xs:element name="url" type="common:string-uri-stype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="report-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="editors" type="output:authors-ctype" minOccurs="0">
+                <xs:unique name="report-editors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="working-paper-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P116']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="title" type="common:string-400-stype"/>
+            <xs:element name="volume" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="publication-date" type="common:date-ctype"/>
+            <xs:element name="url" type="common:string-uri-stype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="working-paper-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="manual-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P118']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="title" type="common:string-400-stype"/>
+            <xs:element name="series-title" type="common:string-400-stype" minOccurs="0"/>
+            <xs:element name="volume" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="number-of-volumes" type="common:int-6-stype" minOccurs="0"/>
+            <xs:element name="edition" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="number-of-pages" type="common:int-6-stype" minOccurs="0"/>
+            <xs:element name="publication-status" type="output:publication-status-ctype" minOccurs="0"/>
+            <xs:element name="publication-year" type="common:year-stype"/>
+            <xs:element name="publication-location" type="output:publication-location-ctype" minOccurs="0"/>
+            <xs:element name="publisher" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="url" type="common:string-uri-stype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="manual-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="online-resource-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P119']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="title" type="common:string-400-stype"/>
+            <xs:element name="creation-date" type="common:date-ctype"/>
+            <xs:element name="url" type="common:string-uri-stype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="online-resource-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="test-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P120']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="title" type="common:string-400-stype"/>
+            <xs:element name="date-first-used" type="common:date-ctype"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="test-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="website-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P121']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="title" type="common:string-400-stype"/>
+            <xs:element name="description" type="common:string-400-stype" minOccurs="0"/>
+            <xs:element name="launch-date" type="common:date-ctype"/>
+            <xs:element name="url" type="common:string-uri-stype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="website-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="conference-paper-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P122']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="paper-title" type="common:string-400-stype"/>
+            <xs:element name="conference-name" type="common:string-400-stype" minOccurs="0"/>
+            <xs:element name="presentation-date" type="common:date-ctype" minOccurs="0"/>
+            <xs:element name="conference-date" type="common:date-ctype"/>
+            <xs:element name="conference-location" type="output:publication-location-ctype" minOccurs="0"/>
+            <xs:element name="proceedings-title" type="common:string-400-stype" minOccurs="0"/>
+            <xs:element name="page-range-from" type="common:string-20-stype" minOccurs="0"/>
+            <xs:element name="page-range-to" type="common:string-20-stype" minOccurs="0"/>
+            <xs:element name="publication-status" type="output:publication-status-ctype" minOccurs="0"/>
+            <xs:element name="publication-location" type="output:publication-location-ctype" minOccurs="0"/>
+            <xs:element name="proceedings-publisher" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="authoring-role" type="output:publication-role-ctype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="conference-paper-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="presenters" type="output:authors-ctype" minOccurs="0">
+                <xs:unique name="conference-paper-presenters-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="proceedings-editors" type="output:authors-ctype" minOccurs="0">
+                <xs:unique name="conference-paper-proceedings-editors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="conference-abstract-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P123']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="article-title" type="common:string-400-stype"/>
+            <xs:element name="conference-name" type="common:string-400-stype" minOccurs="0"/>
+            <xs:element name="conference-location" type="output:publication-location-ctype" minOccurs="0"/>
+            <xs:element name="volume" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="issue" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="page-range-from" type="common:string-20-stype" minOccurs="0"/>
+            <xs:element name="page-range-to" type="common:string-20-stype" minOccurs="0"/>
+            <xs:element name="publication-status" type="output:publication-status-ctype" minOccurs="0"/>
+            <xs:element name="publication-date" type="common:date-ctype"/>
+            <xs:element name="authoring-role" type="output:publication-role-ctype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="conference-abstract-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="conference-poster-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P124']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="title" type="common:string-400-stype"/>
+            <xs:element name="conference-name" type="common:string-400-stype" minOccurs="0"/>
+            <xs:element name="conference-date" type="common:date-ctype"/>
+            <xs:element name="authoring-role" type="output:publication-role-ctype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="conference-poster-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="exhibition-catalogue-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P125']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="title" type="common:string-400-stype"/>
+            <xs:element name="number-of-pages" type="common:int-6-stype" minOccurs="0"/>
+            <xs:element name="publication-year" type="common:year-stype"/>
+            <xs:element name="gallery-or-publisher" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype" minOccurs="0">
+                <xs:unique name="exhibition-catalogue-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="preface-postface-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P126']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+        	<xs:element name="preface-postface-type" type="output:preface-postface-type-ctype"/>
+            <xs:element name="preface-postface-title" type="common:string-400-stype"/>
+            <xs:element name="book-title" type="common:string-400-stype" minOccurs="0"/>
+            <xs:element name="book-volume" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="book-edition" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="preface-postface-page-range-from" type="common:string-20-stype" minOccurs="0"/>
+            <xs:element name="preface-postface-page-range-to" type="common:string-20-stype" minOccurs="0"/>
+            <xs:element name="refereed" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="publication-status" type="output:publication-status-ctype" minOccurs="0"/>
+            <xs:element name="publication-year" type="common:year-stype"/>
+            <xs:element name="publication-location" type="output:publication-location-ctype" minOccurs="0"/>
+            <xs:element name="book-publisher" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="authoring-role" type="output:publication-role-ctype" minOccurs="0"/>
+            <xs:element name="url" type="common:string-uri-stype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="preface-postface-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="editors" type="output:authors-ctype" minOccurs="0">
+                <xs:unique name="preface-postface-editors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="artistic-exhibition-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P301']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="the-title-of-work" type="common:string-400-stype"/>
+            <xs:element ref="common:institutions" minOccurs="0"/>
+            <xs:element name="date-of-first-performance" type="common:date-ctype"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="artistic-exhibition-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="collaborators" type="output:authors-ctype" minOccurs="0">
+                <xs:unique name="artistic-exhibition-collaborators-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="venues" type="output:venues-ctype" minOccurs="0"/>
+            <xs:element name="dates-of-subsequent-performances" type="output:dates-ctype" minOccurs="0"/>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="audio-recording-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P302']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="piece-title" type="common:string-400-stype"/>
+            <xs:element name="album-title" type="common:string-400-stype" minOccurs="0"/>
+            <xs:element name="producer" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="distributor" type="common:string-100-stype" minOccurs="0"/>
+            <xs:element name="release-date" type="common:date-ctype"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="performers" type="output:authors-ctype">
+                <xs:unique name="audio-recording-performers-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="musical-composition-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P304']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="title" type="common:string-400-stype"/>
+            <xs:element name="instrumentation" type="common:string-150-stype" minOccurs="0"/>
+            <xs:element name="number-of-pages" type="common:int-6-stype" minOccurs="0"/>
+            <xs:element name="duration" type="common:string-20-stype" minOccurs="0"/>
+            <xs:element name="composition-date" type="common:date-ctype"/>
+            <xs:element name="publisher" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="composers" type="output:authors-ctype">
+                <xs:unique name="musical-composition-composers-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="musical-performance-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P305']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="the-title-of-work" type="common:string-400-stype"/>
+            <xs:element name="date-of-first-performance" type="common:date-ctype"/>
+            <xs:element name="performance-role" type="output:artistic-role-ctype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="musical-performance-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="collaborators" type="output:authors-ctype" minOccurs="0">
+                <xs:unique name="musical-performance-collaborators-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="venues" type="output:venues-ctype" minOccurs="0"/>
+            <xs:element name="dates-of-subsequent-performances" type="output:dates-ctype" minOccurs="0"/>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="radio-tv-program-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P306']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="program-title" type="common:string-400-stype"/>
+            <xs:element name="episode-title" type="common:string-400-stype" minOccurs="0"/>
+            <xs:element name="number-of-episodes" type="common:int-6-stype" minOccurs="0"/>
+            <xs:element name="series-title" type="common:string-400-stype" minOccurs="0"/>
+            <xs:element name="broadcast-date" type="common:date-ctype"/>
+            <xs:element name="publisher" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="creators" type="output:authors-ctype">
+                <xs:unique name="radio-tv-program-creators-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="script-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P307']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="title" type="common:string-400-stype"/>
+            <xs:element name="date" type="common:date-ctype"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="script-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="short-fiction-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P308']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="title" type="common:string-400-stype"/>
+            <xs:element name="appeared-in" type="common:string-400-stype" minOccurs="0"/>
+            <xs:element name="volume" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="issue" type="common:string-10-stype" minOccurs="0"/>
+            <xs:element name="page-range-from" type="common:string-20-stype" minOccurs="0"/>
+            <xs:element name="page-range-to" type="common:string-20-stype" minOccurs="0"/>
+            <xs:element name="publication-date" type="common:date-ctype"/>
+            <xs:element name="publication-location" type="output:publication-location-ctype" minOccurs="0"/>
+            <xs:element name="publisher" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="short-fiction-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="editors" type="output:authors-ctype" minOccurs="0">
+                <xs:unique name="short-fiction-editors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="theatric-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P309']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="the-title-of-work" type="common:string-400-stype"/>
+            <xs:element name="producer" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="date-of-first-performance" type="common:date-ctype"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="theatric-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="collaborators" type="output:authors-ctype" minOccurs="0">
+                <xs:unique name="theatric-collaborators-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="venues" type="output:venues-ctype" minOccurs="0"/>
+            <xs:element name="dates-of-subsequent-performances" type="output:dates-ctype" minOccurs="0"/>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="video-recording-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P310']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="title" type="common:string-400-stype"/>
+            <xs:element name="series-title" type="common:string-400-stype" minOccurs="0"/>
+            <xs:element name="director" type="common:string-100-stype" minOccurs="0"/>
+            <xs:element name="producer" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="distributor" type="common:string-100-stype" minOccurs="0"/>
+            <xs:element name="release-date" type="common:date-ctype"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="performers" type="output:authors-ctype">
+                <xs:unique name="video-recording-performers-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="visual-artwork-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P311']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="title" type="common:string-400-stype"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="artists" type="output:authors-ctype">
+                <xs:unique name="visual-artwork-artists-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="sound-design-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P312']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="show-title" type="common:string-400-stype"/>
+            <xs:element name="writer-producer" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="opening-date" type="common:date-ctype"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="sound-design-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="key-collaborators" type="output:authors-ctype" minOccurs="0">
+                <xs:unique name="sound-design-key-collaborators-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="venues" type="output:venues-ctype" minOccurs="0"/>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="set-design-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P313']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="show-title" type="common:string-400-stype"/>
+            <xs:element name="writer-producer" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="opening-date" type="common:date-ctype"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="set-design-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="key-collaborators" type="output:authors-ctype" minOccurs="0">
+                <xs:unique name="set-design-key-collaborators-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="venues" type="output:venues-ctype" minOccurs="0"/>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="light-design-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P314']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="show-title" type="common:string-400-stype"/>
+            <xs:element name="writer-producer" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="opening-date" type="common:date-ctype"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="light-design-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="key-collaborators" type="output:authors-ctype" minOccurs="0">
+                <xs:unique name="light-design-key-collaborators-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="venues" type="output:venues-ctype" minOccurs="0"/>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="choreography-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P315']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="show-title" type="common:string-400-stype"/>
+            <xs:element name="composer" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="premier-date" type="common:date-ctype"/>
+            <xs:element name="company" type="common:string-150-stype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="choreography-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="key-collaborators" type="output:authors-ctype" minOccurs="0">
+                <xs:unique name="choreography-key-collaborators-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="principal-dancers" type="output:authors-ctype" minOccurs="0">
+                <xs:unique name="choreography-principal-dancers-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="major-performance-dates" type="output:dates-ctype" minOccurs="0"/>
+            <xs:element name="media-release-dates" type="output:dates-ctype" minOccurs="0"/>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="curatorial-museum-exhibition-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P316']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="exhibition-title" type="common:string-400-stype"/>
+            <xs:element name="exhibition-catalogue-title" type="common:string-400-stype" minOccurs="0"/>
+            <xs:element name="date" type="common:date-ctype"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="curatorial-museum-exhibition-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="artists" type="output:authors-ctype" minOccurs="0">
+                <xs:unique name="curatorial-museum-exhibition-artists-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="venues" type="output:venues-ctype" minOccurs="0"/>
+            <xs:element name="dates-of-subsequent-exhibitions" type="output:dates-ctype" minOccurs="0"/>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="performance-art-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P317']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="performance-title" type="common:string-400-stype"/>
+            <xs:element name="venue" type="common:string-100-stype" minOccurs="0"/>
+            <xs:element name="performance-date" type="common:date-ctype"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="performance-art-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="key-collaborators" type="output:authors-ctype" minOccurs="0">
+                <xs:unique name="performance-art-key-collaborators-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="dates-of-subsequent-performances" type="output:dates-ctype" minOccurs="0"/>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="patent-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P401']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="patent-title" type="common:string-400-stype"/>
+            <xs:element name="patent-number" type="common:string-15-stype" minOccurs="0"/>
+            <xs:element name="owner" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="application-status" type="output:patent-status-ctype" minOccurs="0"/>
+            <xs:element name="date-requested" type="common:date-ctype" minOccurs="0"/>
+            <xs:element name="date-of-filing-priority" type="common:date-ctype" minOccurs="0"/>
+            <xs:element name="date-issued" type="common:date-ctype"/>
+            <xs:element name="date-of-term-end" type="common:date-ctype" minOccurs="0"/>
+            <xs:element name="country" type="common:iso-3166-country-ctype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="patent-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="license-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P402']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="license-title" type="common:string-400-stype"/>
+            <xs:element name="license-status" type="output:license-status-ctype" minOccurs="0"/>
+            <xs:element name="application-date" type="common:date-ctype" minOccurs="0"/>
+            <xs:element name="date-issued" type="common:date-ctype"/>
+            <xs:element name="end-date" type="common:date-ctype" minOccurs="0"/>
+            <xs:element name="country" type="common:iso-3166-country-ctype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="license-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="disclosure-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P403']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="disclosure-title" type="common:string-400-stype"/>
+            <xs:element name="disclosure-status" type="output:disclosure-status-ctype" minOccurs="0"/>
+            <xs:element name="application-date" type="common:date-ctype" minOccurs="0"/>
+            <xs:element name="date-issued" type="common:date-ctype"/>
+            <xs:element name="end-date" type="common:date-ctype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="disclosure-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="registered-copyright-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P404']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="copyright-title" type="common:string-400-stype"/>
+            <xs:element name="owner" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="copyright-status" type="output:registered-copyright-status-ctype" minOccurs="0"/>
+            <xs:element name="application-date" type="common:date-ctype" minOccurs="0"/>
+            <xs:element name="date-issued" type="common:date-ctype"/>
+            <xs:element name="end-date" type="common:date-ctype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="registered-copyright-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="trademark-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P405']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="trademark-title" type="common:string-400-stype"/>
+            <xs:element name="owner" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="trademark-status" type="output:trademark-status-ctype" minOccurs="0"/>
+            <xs:element name="application-date" type="common:date-ctype" minOccurs="0"/>
+            <xs:element name="date-issued" type="common:date-ctype"/>
+            <xs:element name="end-date" type="common:date-ctype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="trademark-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="standard-or-policy-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P501']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="standard-or-policy-title" type="common:string-400-stype"/>
+            <xs:element name="description" type="common:string-400-stype" minOccurs="0"/>
+            <xs:element name="publication-date" type="common:date-ctype"/>
+            <xs:element name="url" type="common:string-uri-stype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="standard-or-policy-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="invention-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P502']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="description" type="common:string-400-stype"/>
+            <xs:element name="audience-type" type="common:string-100-stype" minOccurs="0"/>
+            <xs:element name="release-date" type="common:date-ctype"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="invention-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="data-set-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P503']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="title" type="common:string-400-stype"/>
+            <xs:element name="description" type="common:string-400-stype" minOccurs="0"/>
+            <xs:element name="location-lodged" type="common:string-100-stype" minOccurs="0"/>
+            <xs:element name="primary-users" type="common:string-100-stype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="dataset-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="litigation-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P504']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="case-name" type="common:string-400-stype"/>
+            <xs:element name="court" type="common:string-400-stype" minOccurs="0"/>
+            <xs:element name="key-legal-issues" type="common:string-300-stype" minOccurs="0"/>
+            <xs:element name="person-acted-for" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="year" type="common:year-stype"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="litigation-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="research-technique-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P505']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="description" type="common:string-400-stype"/>
+            <xs:element name="development-role" type="output:other-role-ctype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="research-technique-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="spin-off-company-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P506']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="company-name" type="common:string-400-stype"/>
+            <xs:element name="area-of-activity" type="common:string-100-stype" minOccurs="0"/>
+            <xs:element name="company-status" type="common:string-20-stype" minOccurs="0"/>
+            <xs:element name="number-of-employees" type="common:int-6-stype" minOccurs="0"/>
+            <xs:element name="date-established" type="common:date-ctype"/>
+            <xs:element name="url" type="common:string-uri-stype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="spin-off-company-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="technical-standard-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P507']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="technical-standard-title" type="common:string-400-stype"/>
+            <xs:element name="description" type="common:string-400-stype" minOccurs="0"/>
+            <xs:element name="publication-date" type="common:date-ctype"/>
+            <xs:element name="url" type="common:string-uri-stype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="technical-standard-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="other-output-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "output:output-type[@code='P508']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="title" type="common:string-400-stype"/>
+            <xs:element name="description" type="common:string-400-stype" minOccurs="0"/>
+            <xs:element name="publication-date" type="common:date-ctype"/>
+            <xs:element name="publication-location" type="output:publication-location-ctype" minOccurs="0"/>
+            <xs:element name="url" type="common:string-uri-stype" minOccurs="0"/>
+            <xs:element name="identifiers" type="output:identifiers-ctype" minOccurs="0"/>
+            <xs:element name="authors" type="output:authors-ctype">
+                <xs:unique name="other-output-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="output-category-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:output-category-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="output-type-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:output-type-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="publication-location-ctype">
+        <xs:sequence>
+            <xs:element name="country" type="common:iso-3166-country-ctype"/>
+            <xs:element name="city" type="common:string-100-stype" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="publication-role-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:output-publication-role-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:complexType name="publication-editor-role-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:output-publication-editor-role-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="artistic-role-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:output-artistic-role-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="other-role-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:output-other-role-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="publication-status-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:output-publication-status-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:complexType name="preface-postface-type-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:output-preface-postface-type-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="patent-status-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:output-patent-status-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="license-status-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:output-license-status-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="disclosure-status-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:output-disclosure-status-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="registered-copyright-status-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:output-registered-copyright-status-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="trademark-status-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:output-trademark-status-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="review-publication-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:output-review-publication-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="degree-type-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:output-degree-type-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="identifiers-ctype">
+        <xs:complexContent>
+            <xs:extension base="common:container-ctype">
+                <xs:sequence>
+                    <xs:element name="identifier" type="output:identifier-ctype" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+	
+    <xs:complexType name="identifier-ctype">
+		<xs:sequence>
+			<xs:element name="identifier" type="common:string-255-stype" minOccurs="1" maxOccurs="1" />
+			<xs:element name="identifier-type" type="output:identifier-type-ctype" minOccurs="1" maxOccurs="1" />
+			<xs:element name="relationship-type" type="common:identifier-relationship-type-ctype"  minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="identifier-type-ctype">
+        <xs:simpleContent>
+            <xs:extension base="common:string-255-stype">
+                <xs:attribute name="code" type="common-enum:output-identifier-type-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="venues-ctype">
+        <xs:complexContent>
+            <xs:extension base="common:container-ctype">
+                <xs:sequence>
+                    <xs:element name="venue" type="common:string-150-stype" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="dates-ctype">
+        <xs:complexContent>
+            <xs:extension base="common:container-ctype">
+                <xs:sequence>
+                    <xs:element name="date" type="common:date-ctype" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="authors-ctype">
+        <xs:complexContent>
+            <xs:extension base="common:authors-ctype">
+                <xs:sequence>
+                    <xs:element name="citation" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

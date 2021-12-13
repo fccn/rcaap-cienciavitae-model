@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cienciavitae.pt/ns/groups" xmlns:groups="http://www.cienciavitae.pt/ns/groups"
+    xmlns:common="http://www.cienciavitae.pt/ns/common" xmlns:common-enum="http://www.cienciavitae.pt/ns/common-enum">
+
+    <xs:annotation>
+        <xs:documentation>...</xs:documentation>
+    </xs:annotation>
+
+    <xs:import namespace="http://www.cienciavitae.pt/ns/common" schemaLocation="../common/common.xsd"/>
+    <xs:import namespace="http://www.cienciavitae.pt/ns/common-enum" schemaLocation="../common/common-enum.xsd"/>
+	
+    <xs:element name="groups">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="fundings-outputs" type="groups:fundings-outputs-ctype" minOccurs="0"/>
+                <xs:element name="employments-services" type="groups:employments-services-ctype" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="fundings-outputs-ctype">
+        <xs:sequence>
+            <xs:element name="funding-output" type="groups:funding-output-ctype" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+   
+    <xs:complexType name="funding-output-ctype">
+        <xs:sequence>
+            <xs:element name="funding">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                            <xs:attribute name="id" type="common:id-stype" use="required"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="output">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                            <xs:attribute name="id" type="common:id-stype" use="required"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="employments-services-ctype">
+        <xs:sequence>
+            <xs:element name="employment-service" type="groups:employment-service-ctype" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="employment-service-ctype">
+        <xs:sequence>
+            <xs:element name="employment" >
+            	 <xs:complexType>
+	            	<xs:sequence>
+	            		<xs:element name="employment-category" type="common:string-100-stype" minOccurs="0"/>
+	    				<xs:element name="position-type" type="common:string-100-stype" minOccurs="0"/>
+						<xs:element name="position-title" type="common:string-100-stype" minOccurs="0"/>
+					</xs:sequence>
+					<xs:attribute name="id" type="common:id-stype" use="required"/>
+				</xs:complexType>
+            </xs:element>
+            <xs:element name="service">
+            	<xs:complexType>
+            		<xs:sequence>
+            			<xs:element name="description" type="common:string-555-stype" minOccurs="0"/>
+            			<xs:element name="start-date" type="common:date-ctype" minOccurs="0"/>
+            			<xs:element name="end-date" type="common:date-ctype" minOccurs="0"/>
+                    </xs:sequence>
+                    <xs:attribute name="id" type="common:id-stype" use="required"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+ </xs:schema>

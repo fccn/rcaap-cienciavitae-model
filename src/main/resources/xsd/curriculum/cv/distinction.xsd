@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cienciavitae.pt/ns/distinction" xmlns:distinction="http://www.cienciavitae.pt/ns/distinction"
+	xmlns:common="http://www.cienciavitae.pt/ns/common" xmlns:common-enum="http://www.cienciavitae.pt/ns/common-enum">
+
+	<xs:annotation>
+		<xs:documentation>...</xs:documentation>
+	</xs:annotation>
+
+	<xs:import namespace="http://www.cienciavitae.pt/ns/common" schemaLocation="../common/common.xsd"/>
+	<xs:import namespace="http://www.cienciavitae.pt/ns/common-enum" schemaLocation="../common/common-enum.xsd"/>
+
+
+	<xs:element name="distinctions">
+		<xs:annotation>
+			<xs:documentation>Container for the list of Distinctions associated with the researcher.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="common:container-lastdate-ctype">
+					<xs:sequence>
+						<xs:element ref="distinction:distinction" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="distinction">
+		<xs:annotation>
+			<xs:documentation>Distinction element.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="common:record-ctype">
+					<xs:sequence>
+						<xs:element name="distinction-type" type="distinction:distinction-type-ctype"/>
+						<xs:element name="distinction-name" type="common:string-255-stype"/>
+						<xs:element name="effective-date" type="common:year-stype" minOccurs="0"/>
+						<xs:element ref="common:institutions" minOccurs="0"/>
+						<xs:element name="country" type="common:iso-3166-country-ctype" minOccurs="0"/>
+						<xs:element name="description" type="common:string-255-stype" minOccurs="0"/>
+						<xs:element name="end-date" type="common:date-ctype" minOccurs="0"/>
+						<xs:group ref="common:research-classifications-keywords-group"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="distinction-type-ctype">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="code" type="common-enum:distinction-type-enum" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+</xs:schema>

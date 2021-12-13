@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cienciavitae.pt/ns/api-user" xmlns:api-user="http://www.cienciavitae.pt/ns/api-user"
+	xmlns:common="http://www.cienciavitae.pt/ns/common">
+
+	<xs:annotation>
+    	<xs:documentation>...</xs:documentation>
+    </xs:annotation>
+    
+    <xs:import namespace="http://www.cienciavitae.pt/ns/common" schemaLocation="../common/common.xsd"/>
+	
+    <xs:element name="api-user">
+        <xs:annotation>
+            <xs:documentation>Element Api User</xs:documentation>
+        </xs:annotation>
+       <xs:complexType>
+            <xs:sequence>
+        		<xs:element name="name" type="common:string-255-stype"/>
+        		<xs:element name="privacy-level" type="common:privacy-level-ctype"/>
+        		<xs:element name="role" type="common:role-ctype"/>
+        		<xs:element name="url" type="common:string-255-stype"/>
+        	</xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+</xs:schema>

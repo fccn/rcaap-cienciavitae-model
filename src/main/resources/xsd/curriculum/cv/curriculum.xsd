@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cienciavitae.pt/ns/curriculum" xmlns:curriculum="http://www.cienciavitae.pt/ns/curriculum"
+    xmlns:common="http://www.cienciavitae.pt/ns/common" xmlns:identifying-info="http://www.cienciavitae.pt/ns/identifying-info" xmlns:degree="http://www.cienciavitae.pt/ns/degree"
+    xmlns:employment="http://www.cienciavitae.pt/ns/employment" xmlns:funding="http://www.cienciavitae.pt/ns/funding" xmlns:output="http://www.cienciavitae.pt/ns/output" xmlns:service="http://www.cienciavitae.pt/ns/service"
+    xmlns:distinction="http://www.cienciavitae.pt/ns/distinction" xmlns:groups="http://www.cienciavitae.pt/ns/groups">
+
+    <xs:annotation>
+        <xs:documentation>...</xs:documentation>
+    </xs:annotation>
+
+    <xs:import namespace="http://www.cienciavitae.pt/ns/common" schemaLocation="../common/common.xsd"/>
+    <xs:import namespace="http://www.cienciavitae.pt/ns/identifying-info" schemaLocation="identifying-info.xsd"/>
+    <xs:import namespace="http://www.cienciavitae.pt/ns/degree" schemaLocation="degree.xsd"/>
+    <xs:import namespace="http://www.cienciavitae.pt/ns/employment" schemaLocation="employment.xsd"/>
+    <xs:import namespace="http://www.cienciavitae.pt/ns/funding" schemaLocation="funding.xsd"/>
+    <xs:import namespace="http://www.cienciavitae.pt/ns/output" schemaLocation="output.xsd"/>
+    <xs:import namespace="http://www.cienciavitae.pt/ns/service" schemaLocation="service.xsd"/>
+    <xs:import namespace="http://www.cienciavitae.pt/ns/distinction" schemaLocation="distinction.xsd"/>
+    <xs:import namespace="http://www.cienciavitae.pt/ns/groups" schemaLocation="groups.xsd"/>
+
+
+    <xs:element name="curriculum">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="identifying-info:identifying-info"/>
+                <xs:element ref="degree:degrees" minOccurs="0"/>
+                <xs:element ref="employment:employments" minOccurs="0"/>
+                <xs:element ref="funding:fundings" minOccurs="0"/>
+                <xs:element ref="output:outputs" minOccurs="0"/>
+                <xs:element ref="service:services" minOccurs="0"/>
+                <xs:element ref="distinction:distinctions" minOccurs="0"/>
+                <xs:element ref="groups:groups" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute ref="common:last-modified-date"/>
+            <xs:attribute name="language" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cienciavitae.pt/ns/domain-activity"
+	xmlns:domain-activity="http://www.cienciavitae.pt/ns/domain-activity" xmlns:common="http://www.cienciavitae.pt/ns/common">
+
+	<xs:annotation>
+		<xs:documentation>...</xs:documentation>
+	</xs:annotation>
+
+	<xs:import namespace="http://www.cienciavitae.pt/ns/common" schemaLocation="../../common/common.xsd"/>
+
+
+	<xs:element name="domains-activity">
+		<xs:annotation>
+			<xs:documentation>Container for the list of Domains of Activity associated with the researcher.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="common:container-ctype">
+					<xs:sequence>
+						<xs:element ref="domain-activity:domain-activity" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="domain-activity">
+		<xs:annotation>
+			<xs:documentation>Domain of Activity element.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="common:record-ctype">
+					<xs:sequence>
+						<xs:element ref="common:research-classification"/>
+						<xs:element name="topic" type="common:string-255-stype" minOccurs="0"/>
+						<xs:element ref="common:keywords" minOccurs="0"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

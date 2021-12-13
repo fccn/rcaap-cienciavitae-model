@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cienciavitae.pt/ns/language-competency"
+    xmlns:language-competency="http://www.cienciavitae.pt/ns/language-competency" xmlns:common="http://www.cienciavitae.pt/ns/common" xmlns:common-enum="http://www.cienciavitae.pt/ns/common-enum">
+
+    <xs:annotation>
+        <xs:documentation>...</xs:documentation>
+    </xs:annotation>
+
+    <xs:import namespace="http://www.cienciavitae.pt/ns/common" schemaLocation="../../common/common.xsd"/>
+    <xs:import namespace="http://www.cienciavitae.pt/ns/common-enum" schemaLocation="../../common/common-enum.xsd"/>
+
+
+    <xs:element name="language-competencies">
+        <xs:annotation>
+            <xs:documentation>Container for the list of Language Competencies associated with the researcher.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="common:container-ctype">
+                    <xs:sequence>
+                    	<xs:element ref="language-competency:language-competency" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="language-competency">
+        <xs:annotation>
+            <xs:documentation>Language Competency element.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="common:record-ctype">
+                    <xs:sequence>
+                        <xs:element name="language" type="language-competency:language-code-ctype"/>
+                        <xs:choice>
+                        	<xs:element name="mother-tongue" type="xs:boolean"/>
+                        	<xs:group ref="language-competency:language-skills-group"/>
+                        </xs:choice>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="language-code-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:language-code-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="language-level-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:language-level-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:group name="language-skills-group">
+    	<xs:sequence>
+	        <xs:element name="read" type="language-competency:language-level-ctype" minOccurs="0"/>
+	        <xs:element name="write" type="language-competency:language-level-ctype" minOccurs="0"/>
+	        <xs:element name="speak" type="language-competency:language-level-ctype" minOccurs="0"/>
+	        <xs:element name="understand-spoken" type="language-competency:language-level-ctype" minOccurs="0"/>
+	        <xs:element name="peer-review" type="language-competency:language-level-ctype" minOccurs="0"/>
+    	</xs:sequence>
+    </xs:group>
+</xs:schema>

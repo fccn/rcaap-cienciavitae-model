@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cienciavitae.pt/ns/statistic" xmlns:statistic="http://www.cienciavitae.pt/ns/statistic">
+
+	<xs:annotation>
+    	<xs:documentation>...</xs:documentation>
+    </xs:annotation>
+    
+    <xs:element name="statistics">
+        <xs:annotation>
+            <xs:documentation>Container for statistics</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+        		<xs:element name="persons" type="statistic:total-ctype"/>
+        		<xs:element name="projects" type="statistic:total-ctype" />
+        		<xs:element name="journal-articles" type="statistic:total-ctype"/>
+        		<xs:element name="institutions" type="statistic:total-ctype"/>
+        	</xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:complexType name="total-ctype">
+		<xs:attribute name="total" type="xs:int"/>
+	</xs:complexType>
+    
+</xs:schema>

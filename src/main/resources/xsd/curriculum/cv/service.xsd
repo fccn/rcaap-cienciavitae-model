@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cienciavitae.pt/ns/service" xmlns:service="http://www.cienciavitae.pt/ns/service"
+    xmlns:common="http://www.cienciavitae.pt/ns/common" xmlns:common-enum="http://www.cienciavitae.pt/ns/common-enum">
+
+    <xs:annotation>
+        <xs:documentation>...</xs:documentation>
+    </xs:annotation>
+
+    <xs:import namespace="http://www.cienciavitae.pt/ns/common" schemaLocation="../common/common.xsd"/>
+    <xs:import namespace="http://www.cienciavitae.pt/ns/common-enum" schemaLocation="../common/common-enum.xsd"/>
+
+
+    <xs:element name="services">
+        <xs:annotation>
+            <xs:documentation>Container for the list of Services associated with the researcher.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="common:container-lastdate-ctype">
+                    <xs:sequence>
+                        <xs:element ref="service:service" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="service">
+        <xs:annotation>
+            <xs:documentation>Service element.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="common:extended-record-ctype">
+                    <xs:sequence>
+                        <xs:element name="service-category" type="service:service-category-ctype"/>
+                        <xs:choice>
+                            <xs:element name="consulting-advisory" type="service:consulting-advisory-ctype"/>
+                            <xs:element name="expert-witness" type="service:expert-witness-ctype"/>
+                            <xs:element name="journal-reviewing-refereeing" type="service:journal-reviewing-refereeing-ctype"/>
+                            <xs:element name="conference-reviewing-refereeing" type="service:conference-reviewing-refereeing-ctype"/>
+                            <xs:element name="graduate-examination" type="service:graduate-examination-ctype"/>
+                            <xs:element name="grant-application-assessment" type="service:grant-application-assessment-ctype"/>
+                            <xs:element name="mentoring" type="service:mentoring-ctype"/>
+                            <xs:element name="broadcast-interview" type="service:broadcast-interview-ctype"/>
+                            <xs:element name="text-interview" type="service:text-interview-ctype"/>
+                            <xs:element name="research-based-degree-supervision" type="service:research-based-degree-supervision-ctype"/>
+                            <xs:element name="promotion-tenure-assessment" type="service:promotion-tenure-assessment-ctype"/>
+                            <xs:element name="event-administration" type="service:event-administration-ctype"/>
+                            <xs:element name="event-participation" type="service:event-participation-ctype"/>
+                            <xs:element name="membership" type="service:membership-ctype"/>
+                            <xs:element name="course-taught" type="service:course-taught-ctype"/>
+                            <xs:element name="non-research-presentation" type="service:non-research-presentation-ctype"/>
+                            <xs:element name="committee-membership" type="service:committee-membership-ctype"/>
+                            <xs:element name="scientific-expedition" type="service:scientific-expedition-ctype"/>
+                        </xs:choice>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="consulting-advisory-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "service:service-category[@code='S101']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="start-date" type="common:date-ctype"/>
+            <xs:element name="end-date" type="common:date-ctype" minOccurs="0"/>
+            <xs:element name="activity-description" type="common:string-555-stype"/>
+            <xs:element name="organizations" type="common:institutions-ctype" minOccurs="0"/>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="expert-witness-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "service:service-category[@code='S102']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="start-date" type="common:date-ctype"/>
+            <xs:element name="end-date" type="common:date-ctype" minOccurs="0"/>
+            <xs:element name="contribution-description" type="common:string-555-stype"/>
+            <xs:element name="case" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="location-jurisdiction" type="common:string-255-stype" minOccurs="0"/>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="journal-reviewing-refereeing-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "service:service-category[@code='S103']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="start-date" type="common:date-ctype"/>
+            <xs:element name="end-date" type="common:date-ctype" minOccurs="0"/>
+            <xs:element name="journal">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="common:string-555-stype">
+                            <xs:attribute name="issn" type="common:string-20-stype"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="press" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="works-reviewed" type="common:int-4-stype" minOccurs="0"/>
+            <xs:element name="url" type="common:string-uri-stype" minOccurs="0"/>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="conference-reviewing-refereeing-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "service:service-category[@code='S104']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="start-date" type="common:date-ctype"/>
+            <xs:element name="end-date" type="common:date-ctype" minOccurs="0"/>
+            <xs:element name="conference" type="common:string-555-stype"/>
+            <xs:element name="conference-host" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="works-reviewed" type="common:int-4-stype" minOccurs="0"/>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="graduate-examination-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "service:service-category[@code='S105']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="date" type="common:date-ctype"/>
+            <xs:element name="tid" type="common:string-15-stype" minOccurs="0"/>
+            <xs:element name="theme" type="common:string-555-stype"/>
+            <xs:element name="student-name" type="common:string-120-stype"/>
+            <xs:element name="examination-role" type="service:examination-role-ctype" minOccurs="0"/>
+            <xs:element name="examination-degree" type="service:examination-degree-ctype"/>
+            <xs:element name="examination-subject" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="course-code" type="service:course-code-ctype" minOccurs="0"/>
+            <xs:element ref="common:institutions" minOccurs="0"/>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="grant-application-assessment-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "service:service-category[@code='S106']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="start-date" type="common:date-ctype"/>
+            <xs:element name="end-date" type="common:date-ctype" minOccurs="0"/>
+            <xs:element name="description-of-grant-scholarship" type="common:string-555-stype"/>
+            <xs:element name="number-of-applications-assessed" type="common:int-4-stype" minOccurs="0"/>
+            <xs:element name="assessment-type" type="service:assessment-type-ctype" minOccurs="0"/>
+            <xs:element ref="common:institutions" minOccurs="0"/>
+            <xs:element ref="common:funding-institutions" minOccurs="0"/>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="mentoring-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "service:service-category[@code='S107']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="start-date" type="common:date-ctype"/>
+            <xs:element name="end-date" type="common:date-ctype" minOccurs="0"/>
+            <xs:element name="topic-of-mentor-ship" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="name-of-protege" type="common:string-120-stype"/>
+            <xs:element name="description" type="common:string-255-stype" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="broadcast-interview-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "service:service-category[@code='S108']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="first-broadcast-date" type="common:date-ctype"/>
+            <xs:element name="end-date" type="common:date-ctype" minOccurs="0"/>
+            <xs:element name="program" type="common:string-555-stype"/>
+            <xs:element name="theme" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="interviewer-name" type="common:string-120-stype" minOccurs="0"/>
+            <xs:element name="producer" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="url" type="common:string-uri-stype" minOccurs="0"/>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="text-interview-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "service:service-category[@code='S109']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="publication-date" type="common:date-ctype"/>
+            <xs:element name="topic" type="common:string-555-stype"/>
+            <xs:element name="forum" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="interviewer-name" type="common:string-120-stype" minOccurs="0"/>
+            <xs:element name="url" type="common:string-uri-stype" minOccurs="0"/>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="research-based-degree-supervision-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "service:service-category[@code='S110']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="start-date" type="common:date-ctype"/>
+            <xs:element name="end-date" type="common:date-ctype" minOccurs="0"/>
+            <xs:element name="tid" type="common:string-15-stype" minOccurs="0"/>
+            <xs:element name="thesis-title" type="common:string-555-stype"/>
+            <xs:element name="student-name">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="common:string-120-stype">
+                            <xs:attribute name="consent-obtained-for-name-release" type="xs:boolean" use="required"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="degree-subject" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="degree-type" type="service:degree-type-ctype" minOccurs="0"/>
+            <xs:element name="course-code" type="service:course-code-ctype" minOccurs="0"/>
+            <xs:element name="degree-status" type="service:degree-status-ctype" minOccurs="0"/>
+            <xs:element name="supervisory-type" type="service:supervisory-type-ctype" minOccurs="0"/>
+            <xs:element name="url" type="common:string-uri-stype" minOccurs="0"/>
+            <xs:element name="academic-institutions" type="common:institutions-ctype" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="promotion-tenure-assessment-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "service:service-category[@code='S111']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="start-date" type="common:date-ctype"/>
+            <xs:element name="end-date" type="common:date-ctype" minOccurs="0"/>
+            <xs:element name="description" type="common:string-555-stype"/>
+            <xs:element name="number-of-assessments" type="common:int-4-stype" minOccurs="0"/>
+            <xs:element ref="common:institutions" minOccurs="0"/>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="scientific-expedition-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "service:service-category[@code='S112']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="start-date" type="common:date-ctype"/>
+            <xs:element name="end-date" type="common:date-ctype" minOccurs="0"/>
+            <xs:element name="activity-description" type="common:string-555-stype"/>
+            <xs:element name="organizations" type="common:institutions-ctype" minOccurs="0"/>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="event-administration-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "service:service-category[@code='S201']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="activity-start-date" type="common:date-ctype"/>
+            <xs:element name="activity-end-date" type="common:date-ctype" minOccurs="0"/>
+            <xs:element name="event-description" type="common:string-555-stype"/>
+            <xs:element name="event-type" type="service:event-type-ctype" minOccurs="0"/>
+            <xs:element name="administrative-role" type="service:administrative-role-ctype" minOccurs="0"/>
+            <xs:element name="event-start-date" type="common:date-ctype"/>
+            <xs:element name="event-end-date" type="common:date-ctype" minOccurs="0"/>
+            <xs:element ref="common:institutions" minOccurs="0"/>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="event-participation-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "service:service-category[@code='S202']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="start-date" type="common:date-ctype"/>
+            <xs:element name="end-date" type="common:date-ctype" minOccurs="0"/>
+            <xs:element name="event-description" type="common:string-555-stype"/>
+            <xs:element name="event-name" type="common:string-555-stype" minOccurs="0"/>
+            <xs:element name="event-type" type="service:event-type-ctype" minOccurs="0"/>
+            <xs:element ref="common:institutions" minOccurs="0"/>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="membership-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "service:service-category[@code='S203']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="membership-start-date" type="common:date-ctype"/>
+            <xs:element name="membership-end-date" type="common:date-ctype" minOccurs="0"/>
+            <xs:element name="society-other-organization" type="common:string-555-stype"/>
+            <xs:element name="membership-role" type="common:string-555-stype" minOccurs="0"/>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="course-taught-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "service:service-category[@code='S204']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="start-date" type="common:date-ctype"/>
+            <xs:element name="end-date" type="common:date-ctype" minOccurs="0"/>
+            <xs:element name="academic-session" type="common:string-555-stype"/>
+            <xs:element name="course-title" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="course-level" type="service:course-level-ctype" minOccurs="0"/>
+            <xs:element name="course-code" type="service:course-code-ctype" minOccurs="0"/>
+            <xs:element name="section" type="common:string-555-stype" minOccurs="0"/>
+            <xs:element ref="common:institutions" minOccurs="0"/>
+            <xs:element name="number-of-students" type="common:int-4-stype" minOccurs="0"/>
+            <xs:element name="number-of-credits" type="common:string-7-stype" minOccurs="0"/>
+            <xs:element name="lecture-hours-per-week" type="common:string-7-stype" minOccurs="0"/>
+            <xs:element name="tutorial-hours-per-week" type="common:string-7-stype" minOccurs="0"/>
+            <xs:element name="lab-hours-per-week" type="common:string-7-stype" minOccurs="0"/>
+            <xs:element name="other-contact-hours-per-week" type="common:string-7-stype" minOccurs="0"/>
+            <xs:element name="co-instructors" type="common:authors-ctype" minOccurs="0">
+                <xs:unique name="course-taught-co-instructors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="non-research-presentation-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "service:service-category[@code='S205']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="presentation-date" type="common:date-ctype"/>
+            <xs:element name="title" type="common:string-555-stype"/>
+            <xs:element name="conference-event" type="common:string-555-stype" minOccurs="0"/>
+            <xs:element name="organization-presented-to" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="conference-event-location" type="service:conference-event-location-ctype" minOccurs="0"/>
+            <xs:element name="invited" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="keynote" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="competitive" type="xs:boolean" minOccurs="0"/>
+             <xs:element name="authors" type="common:authors-ctype" minOccurs="0">
+                <xs:unique name="non-research-presentation-authors-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="presenters" type="common:authors-ctype" minOccurs="0">
+                <xs:unique name="non-research-presentation-presenters-constraint">
+                    <xs:selector xpath="common:author"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+         </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="committee-membership-ctype">
+        <xs:annotation>
+            <xs:documentation>Corresponding to "service:service-category[@code='S206']"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="start-date" type="common:date-ctype"/>
+            <xs:element name="end-date" type="common:date-ctype" minOccurs="0"/>
+            <xs:element name="committee-name" type="common:string-555-stype"/>
+            <xs:element name="membership-type" type="service:membership-type-ctype" minOccurs="0"/>
+            <xs:element ref="common:institutions" minOccurs="0"/>
+            <xs:group ref="common:research-classifications-keywords-group"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="service-category-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:service-category-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="examination-role-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:service-examination-role-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="examination-degree-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:service-examination-degree-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="assessment-type-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:service-assessment-type-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="degree-type-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:service-degree-type-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="degree-status-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:service-degree-status-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="supervisory-type-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:service-supervisory-type-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="event-type-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:service-event-type-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="administrative-role-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:service-administrative-role-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="course-level-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:service-course-level-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="membership-type-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:service-membership-type-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+     <xs:complexType name="conference-event-location-ctype">
+        <xs:sequence>
+            <xs:element name="country" type="common:iso-3166-country-ctype"/>
+            <xs:element name="city" type="common:string-100-stype" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="course-code-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="speciality-code" type="common:string-15-stype"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+</xs:schema>

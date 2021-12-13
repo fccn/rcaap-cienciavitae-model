@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:employment="http://www.cienciavitae.pt/ns/employment" xmlns:common="http://www.cienciavitae.pt/ns/common" xmlns:common-enum="http://www.cienciavitae.pt/ns/common-enum" targetNamespace="http://www.cienciavitae.pt/ns/employment" elementFormDefault="qualified">
+	
+	<xs:annotation>
+		<xs:documentation>...</xs:documentation>
+	</xs:annotation>
+	
+	<xs:import namespace="http://www.cienciavitae.pt/ns/common" schemaLocation="../common/common.xsd"/>
+	<xs:import namespace="http://www.cienciavitae.pt/ns/common-enum" schemaLocation="../common/common-enum.xsd"/>
+	
+	
+	<xs:element name="employments">
+		<xs:annotation>
+			<xs:documentation>Container for the list of Employments associated with the researcher.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="common:container-lastdate-ctype">
+					<xs:sequence>
+						<xs:element ref="employment:employment" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="employment">
+		<xs:annotation>
+			<xs:documentation>Employment element.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="common:record-ctype">
+					<xs:sequence>
+						<xs:element name="employment-category" type="employment:employment-category-ctype"/>
+						<xs:element ref="common:institution"/>
+						<xs:element name="position-type" type="employment:employment-position-type-ctype" minOccurs="0"/>
+						<xs:element name="position-title" type="employment:employment-position-title-ctype" minOccurs="0"/>
+						<xs:element name="position-title-group" type="employment:employment-position-title-group-ctype" minOccurs="0"/>
+						<xs:element name="host-institutions" type="common:institutions-ctype" minOccurs="0"/>
+						<xs:element name="start-date" type="common:date-ctype"/>
+						<xs:element name="end-date" type="common:date-ctype" minOccurs="0"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:complexType name="employment-category-ctype">
+		<xs:sequence>
+			<xs:element name="value" type="common:string-100-stype" minOccurs="0"/>
+			<xs:element name="other-value" type="common:string-100-stype" minOccurs="0" />
+		</xs:sequence>
+		<xs:attribute name="code" type="common-enum:employment-category-enum" use="required"/>
+	</xs:complexType>
+	
+	<xs:complexType name="employment-position-type-ctype">
+		<xs:sequence>
+			<xs:element name="value" type="common:string-100-stype" minOccurs="0"/>
+			<xs:element name="other-value" type="common:string-100-stype" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="code" type="common-enum:employment-position-type-enum" use="required"/>
+	</xs:complexType>
+	
+	<xs:complexType name="employment-position-title-ctype">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="code" type="common-enum:employment-position-title-enum" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	
+	<xs:complexType name="employment-position-title-group-ctype">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="code" type="common-enum:employment-position-title-enum" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	
+</xs:schema>

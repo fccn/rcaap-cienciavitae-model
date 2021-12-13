@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cienciavitae.pt/ns/degree" xmlns:degree="http://www.cienciavitae.pt/ns/degree"
+    xmlns:common="http://www.cienciavitae.pt/ns/common" xmlns:common-enum="http://www.cienciavitae.pt/ns/common-enum">
+
+    <xs:annotation>
+        <xs:documentation>...</xs:documentation>
+    </xs:annotation>
+
+    <xs:import namespace="http://www.cienciavitae.pt/ns/common" schemaLocation="../common/common.xsd"/>
+    <xs:import namespace="http://www.cienciavitae.pt/ns/common-enum" schemaLocation="../common/common-enum.xsd"/>
+
+
+    <xs:element name="degrees">
+        <xs:annotation>
+            <xs:documentation>Container for the list of Degrees associated with the researcher.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="common:container-lastdate-ctype">
+                    <xs:sequence>
+                        <xs:element ref="degree:degree" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="degree">
+        <xs:annotation>
+            <xs:documentation>Degree element.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="common:record-ctype">
+                    <xs:sequence>
+                        <xs:element name="degree-type" type="degree:degree-type-ctype"/>
+                        <xs:element name="degree-code" type="degree:degree-code-ctype" minOccurs="0"/>
+                        <xs:element name="degree-name" type="common:string-255-stype"/>
+                        <xs:element ref="common:institutions"/>
+                        <xs:element name="degree-major" type="common:string-255-stype" minOccurs="0"/>
+                        <xs:element name="description" type="common:string-255-stype" minOccurs="0"/>
+                        <xs:element name="classification" type="common:string-50-stype" minOccurs="0"/>
+                        <xs:element name="degree-status" type="degree:degree-status-ctype"/>
+                        <xs:element name="start-date" type="common:date-ctype" minOccurs="0"/>
+                        <xs:element name="end-date" type="common:date-ctype"/>
+                        <xs:element name="thesis" type="degree:thesis-ctype" minOccurs="0"/>
+                        <xs:element ref="common:research-classifications" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="degree-type-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:degree-type-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:complexType name="degree-code-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="speciality-code" type="common:string-15-stype"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="degree-status-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:degree-status-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="thesis-ctype">
+        <xs:sequence>
+            <xs:element name="tid" type="common:string-15-stype" minOccurs="0"/>
+            <xs:element name="thesis-title" type="common:string-255-stype"/>
+            <xs:element ref="common:institution" minOccurs="0"/>
+            <xs:element name="supervisors" type="common:supervisors-ctype" minOccurs="0">
+                <xs:unique name="supervisors-constraint">
+                    <xs:selector xpath="common:supervisor"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cienciavitae.pt/ns/mailing-address"
+	xmlns:mailing-address="http://www.cienciavitae.pt/ns/mailing-address" xmlns:common="http://www.cienciavitae.pt/ns/common" xmlns:common-enum="http://www.cienciavitae.pt/ns/common-enum">
+
+	<xs:annotation>
+		<xs:documentation>...</xs:documentation>
+	</xs:annotation>
+
+	<xs:import namespace="http://www.cienciavitae.pt/ns/common" schemaLocation="../../common/common.xsd"/>
+	<xs:import namespace="http://www.cienciavitae.pt/ns/common-enum" schemaLocation="../../common/common-enum.xsd"/>
+
+
+	<xs:element name="mailing-addresses">
+		<xs:annotation>
+			<xs:documentation>Container for the list of Mailing Addresses associated with the researcher.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="common:container-ctype">
+					<xs:sequence>
+						<xs:element ref="mailing-address:mailing-address" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="mailing-address">
+		<xs:annotation>
+			<xs:documentation>Mailing Address element.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="common:record-ctype">
+					<xs:sequence>
+						<xs:element name="address-type" type="common:contact-type-ctype"/>
+						<xs:element name="street-address" type="common:string-255-stype"/>
+						<xs:element name="postal-code" type="common:string-10-stype"/>
+						<xs:element name="city" type="common:string-50-stype"/>
+						<xs:element name="province-state" type="common:string-50-stype"/>
+						<xs:element name="country" type="common:iso-3166-country-ctype"/>
+					</xs:sequence>
+					<xs:attribute name="preferred-mailing-address" type="xs:boolean" default="false"/>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

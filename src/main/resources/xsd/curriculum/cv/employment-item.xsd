@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.cienciavitae.pt/ns/employment-item" xmlns:employment-item="http://www.cienciavitae.pt/ns/employment-item" 
+	xmlns:common="http://www.cienciavitae.pt/ns/common" 	xmlns:common-enum="http://www.cienciavitae.pt/ns/common-enum"  elementFormDefault="qualified">
+	
+	<xs:annotation>
+		<xs:documentation>...</xs:documentation>
+	</xs:annotation>
+	
+	<xs:import namespace="http://www.cienciavitae.pt/ns/common" schemaLocation="../common/common.xsd"/>
+	<xs:import namespace="http://www.cienciavitae.pt/ns/common-enum" schemaLocation="../common/common-enum.xsd"/>
+	
+	<xs:element name="employment-items">
+		<xs:annotation>
+			<xs:documentation>Container for the list of employment items available for an employment.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="employment-category" type="employment-item:employment-category-ctype" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="employment-category-ctype">
+		<xs:sequence>
+			<xs:element name="employment-position-type" type="employment-item:employment-position-type-ctype" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="code" type="common-enum:employment-category-enum"/>
+		<xs:attribute name="value" type="common:string-100-stype"/>
+		<xs:attribute name="selectable" type="xs:boolean"/>
+	</xs:complexType>
+
+	<xs:complexType name="employment-position-type-ctype">
+		<xs:sequence>
+			<xs:element name="employment-position-title" type="employment-item:employment-position-title-ctype" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="code" type="common-enum:employment-position-type-enum"/>
+		<xs:attribute name="value" type="common:string-100-stype"/>
+		<xs:attribute name="selectable" type="xs:boolean"/>
+	</xs:complexType>
+
+	<xs:complexType name="employment-position-title-ctype">
+		<xs:attribute name="code" type="common-enum:employment-position-title-enum"/>
+		<xs:attribute name="value" type="common:string-100-stype"/>
+		<xs:attribute name="selectable" type="xs:boolean"/>
+	</xs:complexType>
+	
+</xs:schema>

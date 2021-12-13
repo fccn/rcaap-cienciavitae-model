@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cienciavitae.pt/ns/common" xmlns:common="http://www.cienciavitae.pt/ns/common"
+    xmlns:common-enum="http://www.cienciavitae.pt/ns/common-enum">
+
+    <xs:annotation>
+        <xs:documentation>...</xs:documentation>
+    </xs:annotation>
+
+    <xs:import namespace="http://www.cienciavitae.pt/ns/common-enum" schemaLocation="common-enum.xsd"/>
+
+
+    <xs:attribute name="last-modified-date" type="xs:dateTime"/>
+	
+	<xs:complexType name="privacy-level-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:privacy-level-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:complexType name="role-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:role-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:element name="research-classifications" type="common:research-classifications-ctype">
+        <xs:unique name="research-classification-constraint">
+            <xs:selector xpath="common:research-classification"/>
+            <xs:field xpath="@code"/>
+        </xs:unique>
+    </xs:element>
+    <xs:element name="research-classification" type="common:research-classification-ctype"/>
+
+    <xs:element name="keywords" type="common:keywords-ctype">
+        <xs:unique name="keyword-constraint">
+            <xs:selector xpath="common:keyword"/>
+            <xs:field xpath="."/>
+        </xs:unique>
+    </xs:element>
+    <xs:element name="keyword" type="common:keyword-ctype"/>
+
+    <xs:element name="institutions" type="common:institutions-ctype">
+        <xs:unique name="institution-constraint">
+            <xs:selector xpath="common:institution"/>
+            <xs:field xpath="institution-name"/>
+        </xs:unique>
+    </xs:element>
+    <xs:element name="institution" type="common:institution-ctype"/>
+    
+    <xs:element name="funding-institutions" type="common:institutions-ctype">
+       <xs:unique name="funding-institution-constraint">
+            <xs:selector xpath="common:institution"/>
+            <xs:field xpath="institution-name"/>
+        </xs:unique>
+    </xs:element>
+    <xs:element name="funding-institution" type="common:institution-ctype"/>
+	
+	<xs:group name="research-classifications-keywords-group">
+        <xs:sequence>
+            <xs:element ref="common:research-classifications" minOccurs="0"/>
+            <xs:element ref="common:keywords" minOccurs="0"/>
+        </xs:sequence>
+    </xs:group>
+
+    <xs:complexType name="container-ctype">
+        <xs:attribute name="total" type="xs:int"/>
+    </xs:complexType>
+    
+    <xs:complexType name="container-lastdate-ctype">
+        <xs:attribute name="total" type="xs:int"/>
+        <xs:attribute ref="common:last-modified-date"/>
+    </xs:complexType>
+    
+    <xs:complexType name="version-container-ctype">
+        <xs:attribute name="publish-date" type="xs:dateTime"/>
+        <xs:attribute name="id" type="common:id-stype"/>
+    </xs:complexType>
+
+    <xs:complexType name="record-ctype">
+        <xs:attribute name="id" type="common:id-stype"/>
+        <xs:attribute name="privacy-level" type="common-enum:privacy-level-enum" use="required"/>
+        <xs:attribute name="source-name" type="common:string-120-stype"/>
+        <xs:attribute ref="common:last-modified-date"/>
+    </xs:complexType>
+
+    <xs:complexType name="extended-record-ctype">
+        <xs:complexContent>
+            <xs:extension base="common:record-ctype">
+                <xs:attribute name="favorite" type="xs:boolean"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="contact-type-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:contact-type-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="authors-ctype">
+        <xs:complexContent>
+            <xs:extension base="common:container-ctype">
+                <xs:sequence>
+                    <xs:element name="author" type="common:author-ctype" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="author-ctype">
+        <xs:simpleContent>
+            <xs:extension base="common:string-120-stype">
+            	<xs:attribute name="ciencia-id" type="common:string-14-stype"/>
+                <xs:attribute name="self" type="xs:boolean"/>
+                <xs:attribute name="firstAuthor" type="xs:boolean"/>
+                <xs:attribute name="correspondingAuthor" type="xs:boolean"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:complexType name="supervisors-ctype">
+        <xs:complexContent>
+            <xs:extension base="common:container-ctype">
+                <xs:sequence>
+                    <xs:element name="supervisor" type="common:supervisor-ctype" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="supervisor-ctype">
+        <xs:sequence>
+            <xs:element name="supervisor-name" type="common:string-120-stype"/>
+            <xs:element name="supervisor-role" type="common:supervisor-role-ctype"/>
+        </xs:sequence>
+         <xs:attribute name="ciencia-id" type="common:string-14-stype"/>
+    </xs:complexType>
+    
+    <xs:complexType name="supervisor-role-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:supervisor-role-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="institutions-ctype">
+        <xs:complexContent>
+            <xs:extension base="common:container-ctype">
+                <xs:sequence>
+                    <xs:element name="institution" type="common:institution-ctype" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:complexType name="institution-identifiers-ctype">
+        <xs:complexContent>
+            <xs:extension base="common:container-ctype">
+                <xs:sequence>
+                    <xs:element name="institution-identifier" type="common:institution-identifier-ctype" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="institution-ctype">
+        <xs:sequence>
+            <xs:element name="institution-name" type="common:string-255-stype"/>
+            <xs:element name="institution-address" type="common:institution-address-ctype"/>
+            <xs:element name="institution-sector" type="common:institution-sector-ctype"/>
+            <xs:element name="institution-identifier" type="common:institution-identifier-ctype" minOccurs="0"/>
+            <xs:element name="institution-other-identifiers" type="common:institution-identifiers-ctype" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="institution-address-ctype">
+        <xs:sequence>
+            <xs:element name="city" type="common:string-255-stype"/>
+            <xs:element name="region" type="common:string-255-stype" minOccurs="0"/>
+            <xs:element name="country" type="common:iso-3166-country-ctype"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="institution-sector-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:institution-sector-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="institution-identifier-ctype">
+    	<xs:sequence>
+    		<xs:element name="identifier" type="common:string-255-stype"/>
+    		<xs:element name="type" type="common-enum:institution-identifier-code-enum"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="iso-3166-country-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:iso-3166-country-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="iso-4217-currency-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:iso-4217-currency-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="research-classifications-ctype">
+        <xs:complexContent>
+            <xs:extension base="common:container-ctype">
+                <xs:sequence>
+                    <xs:element name="research-classification" type="common:research-classification-ctype" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="research-classification-ctype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="common-enum:research-classification-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="keywords-ctype">
+        <xs:complexContent>
+            <xs:extension base="common:container-ctype">
+                <xs:sequence>
+                    <xs:element name="keyword" type="common:keyword-ctype" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+	<xs:complexType name="identifier-relationship-type-ctype">
+        <xs:simpleContent>
+            <xs:extension base="common:non-empty-string-stype">
+                 <xs:attribute name="code" type="common-enum:identifier-relationship-type-enum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="date-ctype">
+        <xs:attribute name="year" type="common:year-stype" use="required"/>
+        <xs:attribute name="month" type="common:month-stype"/>
+        <xs:attribute name="day" type="common:day-stype"/>
+    </xs:complexType>
+    
+    <xs:simpleType name="id-stype">
+        <xs:annotation>
+            <xs:documentation>Internal Identifier of the Record.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:int"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="keyword-ctype">
+        <xs:restriction base="common:string-50-stype"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="non-empty-string-stype">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[\s\S]*[^\s\n\r]+[\s\S]*"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+	<xs:simpleType name="string-7-stype">
+        <xs:restriction base="common:non-empty-string-stype">
+            <xs:maxLength value="7"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string-10-stype">
+        <xs:restriction base="common:non-empty-string-stype">
+            <xs:maxLength value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="string-14-stype">
+        <xs:restriction base="common:non-empty-string-stype">
+            <xs:maxLength value="14"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string-15-stype">
+        <xs:restriction base="common:non-empty-string-stype">
+            <xs:maxLength value="15"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string-20-stype">
+        <xs:restriction base="common:non-empty-string-stype">
+            <xs:maxLength value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string-50-stype">
+        <xs:restriction base="common:non-empty-string-stype">
+            <xs:maxLength value="50"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string-80-stype">
+        <xs:restriction base="common:non-empty-string-stype">
+            <xs:maxLength value="80"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string-100-stype">
+        <xs:restriction base="common:non-empty-string-stype">
+            <xs:maxLength value="100"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string-120-stype">
+        <xs:restriction base="common:non-empty-string-stype">
+            <xs:maxLength value="120"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string-150-stype">
+        <xs:restriction base="common:non-empty-string-stype">
+            <xs:maxLength value="150"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string-255-stype">
+        <xs:restriction base="common:non-empty-string-stype">
+            <xs:maxLength value="255"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string-300-stype">
+        <xs:restriction base="common:non-empty-string-stype">
+            <xs:maxLength value="300"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string-400-stype">
+        <xs:restriction base="common:non-empty-string-stype">
+            <xs:maxLength value="400"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string-555-stype">
+        <xs:restriction base="common:non-empty-string-stype">
+            <xs:maxLength value="555"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string-2000-stype">
+        <xs:restriction base="common:non-empty-string-stype">
+            <xs:maxLength value="2000"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string-4000-stype">
+        <xs:restriction base="common:non-empty-string-stype">
+            <xs:maxLength value="4000"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string-email-stype">
+        <xs:restriction base="common:string-80-stype">
+            <xs:pattern value="[^@]+@[^\.]+\..+"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string-uri-stype">
+        <xs:restriction base="xs:anyURI">
+            <xs:maxLength value="255"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="int-4-stype">
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="int-6-stype">
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="year-stype">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{4}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="month-stype">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{2}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="day-stype">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{2}"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

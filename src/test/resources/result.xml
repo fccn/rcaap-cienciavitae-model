@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<search:search xmlns:output="http://www.cienciavitae.pt/ns/output" xmlns:service="http://www.cienciavitae.pt/ns/service" xmlns:web-address="http://www.cienciavitae.pt/ns/web-address" xmlns:email="http://www.cienciavitae.pt/ns/email" xmlns:citation-name="http://www.cienciavitae.pt/ns/citation-name" xmlns:mailing-address="http://www.cienciavitae.pt/ns/mailing-address" xmlns:employment="http://www.cienciavitae.pt/ns/employment" xmlns:funding="http://www.cienciavitae.pt/ns/funding" xmlns:distinction="http://www.cienciavitae.pt/ns/distinction" xmlns:person-info="http://www.cienciavitae.pt/ns/person-info" xmlns:version="http://www.cienciavitae.pt/ns/version" xmlns:common="http://www.cienciavitae.pt/ns/common" xmlns:degree="http://www.cienciavitae.pt/ns/degree" xmlns:search="http://www.cienciavitae.pt/ns/search" xmlns:domain-activity="http://www.cienciavitae.pt/ns/domain-activity" xmlns:author-identifier="http://www.cienciavitae.pt/ns/author-identifier" xmlns:phone-number="http://www.cienciavitae.pt/ns/phone-number" xmlns:language-competency="http://www.cienciavitae.pt/ns/language-competency" xmlns:person="http://www.cienciavitae.pt/ns/person" total="1">
+  <search:summary>
+    <search:total>2</search:total>
+    <search:start>1</search:start>
+    <search:end>1</search:end>
+  </search:summary>
+  <search:result>
+    <person:person common:last-modified-date="2020-11-03T10:54:22">
+      <person-info:person-info>
+        <person-info:full-name>JOÃO ALEXANDRE REIS MENDES MOREIRA</person-info:full-name>
+        <person-info:names>JOÃO ALEXANDRE</person-info:names>
+        <person-info:surnames>REIS MENDES MOREIRA</person-info:surnames>
+        <person-info:date-of-birth privacy-level="privado"/>
+        <person-info:gender privacy-level="privado"/>
+        <person-info:photography privacy-level="semi-publico"/>
+      </person-info:person-info>
+      <citation-name:citation-names total="1">
+        <citation-name:citation-name id="12" privacy-level="publico" source-name="Ciência Vitae" common:last-modified-date="2019-03-28T15:54:35" preferred-citation-name="true">Moreira, João Alexandre Reis Mendes</citation-name:citation-name>
+      </citation-name:citation-names>
+      <author-identifier:author-identifiers total="1">
+        <author-identifier:author-identifier id="231" privacy-level="publico" source-name="Ciência Vitae" common:last-modified-date="2018-02-01T10:38:52">
+          <author-identifier:identifier-type code="CIENCIAID">Ciência ID</author-identifier:identifier-type>
+          <author-identifier:identifier>1019-2EC9-876A</author-identifier:identifier>
+        </author-identifier:author-identifier>
+      </author-identifier:author-identifiers>
+      <employment:employments total="1">
+        <employment:employment id="1482" privacy-level="publico" source-name="Ciência Vitae" common:last-modified-date="2019-10-30T11:58:11">
+          <employment:employment-category code="T01">
+            <employment:value>Ciência</employment:value>
+          </employment:employment-category>
+          <common:institution>
+            <common:institution-name>Instituto Politécnico de Leiria</common:institution-name>
+            <common:institution-address>
+              <common:city>Leiria</common:city>
+              <common:region>Leiria</common:region>
+              <common:country code="PT">Portugal</common:country>
+            </common:institution-address>
+            <common:institution-sector code="S01">Ensino</common:institution-sector>
+            <common:institution-identifier>
+              <common:identifier>70866</common:identifier>
+              <common:type>RINGGOLD</common:type>
+            </common:institution-identifier>
+            <common:institution-other-identifiers total="3">
+              <common:institution-identifier>
+                <common:identifier>3100</common:identifier>
+                <common:type>DGEEC</common:type>
+              </common:institution-identifier>
+              <common:institution-identifier>
+                <common:identifier>0000000121116991</common:identifier>
+                <common:type>ISNI</common:type>
+              </common:institution-identifier>
+              <common:institution-identifier>
+                <common:identifier>506971244</common:identifier>
+                <common:type>NIF</common:type>
+              </common:institution-identifier>
+            </common:institution-other-identifiers>
+          </common:institution>
+          <employment:position-type code="T01V01">
+            <employment:value>Investigação</employment:value>
+          </employment:position-type>
+          <employment:position-title code="T01V01C01">Investigador Coordenador (carreira)</employment:position-title>
+          <employment:start-date year="2019"/>
+        </employment:employment>
+      </employment:employments>
+    </person:person>
+  </search:result>
+</search:search>

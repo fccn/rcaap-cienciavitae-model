@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cienciavitae.pt/ns/access-privileges" xmlns:access-privileges="http://www.cienciavitae.pt/ns/access-privileges"
+	xmlns:api-user="http://www.cienciavitae.pt/ns/api-user" xmlns:common="http://www.cienciavitae.pt/ns/common">
+
+	<xs:annotation>
+    	<xs:documentation>...</xs:documentation>
+    </xs:annotation>
+    
+	<xs:import namespace="http://www.cienciavitae.pt/ns/api-user" schemaLocation="api-user.xsd"/>
+	<xs:import namespace="http://www.cienciavitae.pt/ns/common" schemaLocation="../common/common.xsd"/>
+    
+    <xs:element name="access-privileges">
+        <xs:annotation>
+            <xs:documentation>Container for access privileges</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+           		<xs:element ref="api-user:api-user"/>
+        		<xs:element ref="access-privileges:privilege"/>
+        	</xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+     <xs:element name="privilege">
+    	<xs:annotation>
+			<xs:documentation>Information element.</xs:documentation>
+		</xs:annotation>
+		 <xs:complexType>
+            <xs:sequence>
+        		<xs:element name="ciencia-id" type="common:string-15-stype"/>
+        		<xs:element name="effective-privacy-level" type="common:privacy-level-ctype"/>
+        		<xs:element name="effective-role" type="common:role-ctype"/>
+        	</xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+</xs:schema>

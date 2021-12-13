@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cienciavitae.pt/ns/citation-name" xmlns:citation-name="http://www.cienciavitae.pt/ns/citation-name" 
+	xmlns:common="http://www.cienciavitae.pt/ns/common" xmlns:common-enum="http://www.cienciavitae.pt/ns/common-enum">
+	
+	<xs:annotation>
+		<xs:documentation>...</xs:documentation>
+	</xs:annotation>
+	
+	<xs:import namespace="http://www.cienciavitae.pt/ns/common" schemaLocation="../../common/common.xsd"/>
+	 <xs:import namespace="http://www.cienciavitae.pt/ns/common-enum" schemaLocation="../../common/common-enum.xsd"/>
+	
+	
+	<xs:element name="citation-names">
+		<xs:annotation>
+			<xs:documentation>Container for the list of Citation Names associated with the researcher.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="common:container-ctype">
+					<xs:sequence>
+						<xs:element ref="citation-name:citation-name" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="citation-name">
+		<xs:annotation>
+			<xs:documentation>Citation Name element.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:simpleContent>
+		    	<xs:extension base="common:string-80-stype">
+		    		<xs:attribute name="id" type="common:id-stype"/>
+			        <xs:attribute name="privacy-level" type="common-enum:privacy-level-enum" use="required"/>
+			        <xs:attribute name="source-name" type="common:string-120-stype"/>
+			        <xs:attribute ref="common:last-modified-date"/>
+		       		<xs:attribute name="preferred-citation-name" type="xs:boolean" default="false"/>
+		      	</xs:extension>
+		    </xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

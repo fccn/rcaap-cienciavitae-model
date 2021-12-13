@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cienciavitae.pt/ns/email" xmlns:email="http://www.cienciavitae.pt/ns/email"
+	xmlns:common="http://www.cienciavitae.pt/ns/common" xmlns:common-enum="http://www.cienciavitae.pt/ns/common-enum">
+
+	<xs:annotation>
+		<xs:documentation>...</xs:documentation>
+	</xs:annotation>
+
+	<xs:import namespace="http://www.cienciavitae.pt/ns/common" schemaLocation="../../common/common.xsd"/>
+	<xs:import namespace="http://www.cienciavitae.pt/ns/common-enum" schemaLocation="../../common/common-enum.xsd"/>
+
+
+	<xs:element name="emails">
+		<xs:annotation>
+			<xs:documentation>Container for the list of Emails associated with the researcher.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="common:container-ctype">
+					<xs:sequence>
+						<xs:element ref="email:email" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="email">
+		<xs:annotation>
+			<xs:documentation>Email element.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="common:record-ctype">
+					<xs:sequence>
+						<xs:element name="email-type" type="common:contact-type-ctype"/>
+						<xs:element name="email-address" type="common:string-email-stype"/>
+					</xs:sequence>
+					<xs:attribute name="preferred-email" type="xs:boolean" default="false"/>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

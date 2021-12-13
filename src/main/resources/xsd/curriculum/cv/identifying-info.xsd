@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cienciavitae.pt/ns/identifying-info"
+    xmlns:identifying-info="http://www.cienciavitae.pt/ns/identifying-info" xmlns:common="http://www.cienciavitae.pt/ns/common" xmlns:common-enum="http://www.cienciavitae.pt/ns/common-enum"
+    xmlns:person-info="http://www.cienciavitae.pt/ns/person-info" xmlns:citation-name="http://www.cienciavitae.pt/ns/citation-name" xmlns:author-identifier="http://www.cienciavitae.pt/ns/author-identifier" 
+    xmlns:email="http://www.cienciavitae.pt/ns/email" xmlns:phone-number="http://www.cienciavitae.pt/ns/phone-number" xmlns:mailing-address="http://www.cienciavitae.pt/ns/mailing-address"
+    xmlns:web-address="http://www.cienciavitae.pt/ns/web-address" xmlns:domain-activity="http://www.cienciavitae.pt/ns/domain-activity" xmlns:language-competency="http://www.cienciavitae.pt/ns/language-competency"
+    xmlns:resume="http://www.cienciavitae.pt/ns/resume">
+
+    <xs:annotation>
+        <xs:documentation>...</xs:documentation>
+    </xs:annotation>
+
+    <xs:import namespace="http://www.cienciavitae.pt/ns/common" schemaLocation="../common/common.xsd"/>
+    <xs:import namespace="http://www.cienciavitae.pt/ns/common-enum" schemaLocation="../common/common-enum.xsd"/>
+    <xs:import namespace="http://www.cienciavitae.pt/ns/person-info" schemaLocation="identifying-info/person-info.xsd"/>
+    <xs:import namespace="http://www.cienciavitae.pt/ns/citation-name" schemaLocation="identifying-info/citation-name.xsd"/>
+    <xs:import namespace="http://www.cienciavitae.pt/ns/author-identifier" schemaLocation="identifying-info/author-identifier.xsd"/>
+    <xs:import namespace="http://www.cienciavitae.pt/ns/email" schemaLocation="identifying-info/email.xsd"/>
+    <xs:import namespace="http://www.cienciavitae.pt/ns/phone-number" schemaLocation="identifying-info/phone-number.xsd"/>
+    <xs:import namespace="http://www.cienciavitae.pt/ns/mailing-address" schemaLocation="identifying-info/mailing-address.xsd"/>
+    <xs:import namespace="http://www.cienciavitae.pt/ns/web-address" schemaLocation="identifying-info/web-address.xsd"/>
+    <xs:import namespace="http://www.cienciavitae.pt/ns/domain-activity" schemaLocation="identifying-info/domain-activity.xsd"/>
+    <xs:import namespace="http://www.cienciavitae.pt/ns/language-competency" schemaLocation="identifying-info/language-competency.xsd"/>
+    <xs:import namespace="http://www.cienciavitae.pt/ns/resume" schemaLocation="identifying-info/resume.xsd"/>
+
+
+    <xs:element name="identifying-info">
+        <xs:annotation>
+            <xs:documentation>Identifying Info element.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="person-info:person-info"/>
+                <xs:element ref="citation-name:citation-names"/>
+                <xs:element ref="author-identifier:author-identifiers"/>
+                <xs:element ref="email:emails"/>
+                <xs:element ref="phone-number:phone-numbers" minOccurs="0"/>
+                <xs:element ref="mailing-address:mailing-addresses" minOccurs="0"/>
+                <xs:element ref="web-address:web-addresses" minOccurs="0"/>
+                <xs:element ref="domain-activity:domains-activity" minOccurs="0"/>
+                <xs:element ref="language-competency:language-competencies" minOccurs="0"/>
+                <xs:element ref="resume:resume" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
