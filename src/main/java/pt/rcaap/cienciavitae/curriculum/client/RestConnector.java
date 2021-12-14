@@ -6,6 +6,7 @@ import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Base64;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
@@ -118,9 +119,13 @@ public class RestConnector {
             
             // Request parameters and other properties.
             List<NameValuePair> params = new ArrayList<NameValuePair>();
-            
-            params.add(new BasicNameValuePair("param-1", "12345"));
-            params.add(new BasicNameValuePair("param-2", "Hello!"));
+                        
+            List<String> paramList = Arrays.asList(data);
+            for (String param : paramList) {
+                String[] parts = param.split("=");
+                params.add(new BasicNameValuePair(parts[0], parts[1]));
+            }
+
             httpPost.setEntity(new UrlEncodedFormEntity(params, "UTF-8"));
 
             //Execute and get the response.
