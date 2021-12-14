@@ -5,8 +5,8 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
+//import java.util.ArrayList;
+//import java.util.Arrays;
 import java.util.Base64;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
@@ -19,7 +19,7 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.message.BasicNameValuePair;
+//import org.apache.http.message.BasicNameValuePair;
 
 /**
  * API Connector
@@ -105,7 +105,7 @@ public class RestConnector {
      * @param data to send
      * @return an InputStream with a Result
      */
-    public InputStream post(String path, String... data) throws ConnectorException {
+    public InputStream post(String path, List<NameValuePair> data) throws ConnectorException {
         InputStream result = null;
         HttpResponse response = null;
         try {
@@ -116,16 +116,16 @@ public class RestConnector {
                 httpPost.addHeader("Authorization", "Basic " + basicAuthToken);
             }
             
-            // Request parameters and other properties.
+            /*// Request parameters and other properties.
             List<NameValuePair> params = new ArrayList<NameValuePair>();
                         
             List<String> paramList = Arrays.asList(data);
             for (String param : paramList) {
                 String[] parts = param.split("=");
                 params.add(new BasicNameValuePair(parts[0], parts[1]));
-            }
+            }*/
 
-            httpPost.setEntity(new UrlEncodedFormEntity(params, "UTF-8"));
+            httpPost.setEntity(new UrlEncodedFormEntity(data, "UTF-8"));
 
             //Execute and get the response.
             HttpClient httpClient = HttpClientBuilder.create().build();
