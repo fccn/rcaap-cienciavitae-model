@@ -7,7 +7,7 @@
 
 	<groupId>pt.rcaap</groupId>
 	<artifactId>cienciavitae.model</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 
 	<name>cienciavitae.model</name>
 	<description>A simple cienciavitae.curriculum.model.</description>
