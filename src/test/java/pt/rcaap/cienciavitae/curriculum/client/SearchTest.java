@@ -35,10 +35,10 @@ public class SearchTest
     @Test
     public void testSearchClientByName() throws JAXBException, IOException, ClientException {
         InputStream is = getClass().getClassLoader().getResourceAsStream(FILE);
-        Search search = SearchExtractor.unmarshal(is);
+        Search result = Extractor.unmarshal(is, Search.class);
           
-        assertNotNull(search);
-        assertEquals(search.getSummary().getTotal(), 2);        
-        assertEquals(search.getResult().getPerson().get(0).getPersonInfo().getNames(), "JOÃO ALEXANDRE");                
+        assertNotNull(result);
+        assertEquals(result.getSummary().getTotal(), 2);        
+        assertEquals(result.getResult().getPerson().get(0).getPersonInfo().getNames(), "JOÃO ALEXANDRE");                
     }    
 }
