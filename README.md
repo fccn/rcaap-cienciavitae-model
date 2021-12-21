@@ -14,6 +14,7 @@ You can use maven pom.xml to include this library in your project. Just add this
 
 ## Usage Example
 
+```
 import pt.cienciavitae.ns.search.Search;
 import pt.rcaap.cienciavitae.curriculum.client.RestConnector;
 import pt.rcaap.cienciavitae.curriculum.client.SearchRestClient;
@@ -23,3 +24,4 @@ SearchRestClient searchPerson = new SearchRestClient(connector);
 
 // search person by id (first row only)
 Search result = searchPerson.searchPerson(id, true, null, 1, 1, 0, null);
+```
