@@ -13,11 +13,10 @@ import pt.cienciavitae.ns.search.Search;
  * @author pgraca
  *
  */
-public class SearchRestClient {
-    RestConnector connector;
+public class SearchRestClient extends AbstractRestClient {
 
     public SearchRestClient(RestConnector connector) {
-        this.connector = connector;
+        super(connector);
     }
 
     /**
@@ -38,6 +37,17 @@ public class SearchRestClient {
         if (connector == null) {
             throw new ClientException("Search Rest Connector required");
         }
+
+        // setting default value for order
+        if (order == null || CienciaVitaeUtils.ORDER.valueOf(order) == null) {
+            order = CienciaVitaeUtils.ORDER.Ascending.name();
+        }
+
+        // setting default value for lang
+        if (lang == null || CienciaVitaeUtils.LANG.valueOf(lang) == null) {
+            lang = CienciaVitaeUtils.LANG.PT.name();
+        }
+
         String[] queryStringPagination = { "page=" + page, "rows=" + rows, "pagination=" + pagination, "order=" + order,
                 "limit=" + limit, "lang=" + lang };
         String path = "/searches/persons";
@@ -51,7 +61,7 @@ public class SearchRestClient {
             try {
                 result = this.connector.get(queryString);
                 if (result != null) {
-                    return SearchExtractor.unmarshal(result);
+                    return Extractor.unmarshal(result, Search.class);
                 }
 
             } catch (JAXBException e) {

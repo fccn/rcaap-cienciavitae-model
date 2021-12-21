@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+  <curriculum:curriculum xmlns:identifying-info="http://www.cienciavitae.pt/ns/identifying-info" xmlns:output="http://www.cienciavitae.pt/ns/output" xmlns:service="http://www.cienciavitae.pt/ns/service" xmlns:groups="http://www.cienciavitae.pt/ns/groups" xmlns:curriculum="http://www.cienciavitae.pt/ns/curriculum" xmlns:web-address="http://www.cienciavitae.pt/ns/web-address" xmlns:email="http://www.cienciavitae.pt/ns/email" xmlns:citation-name="http://www.cienciavitae.pt/ns/citation-name" xmlns:mailing-address="http://www.cienciavitae.pt/ns/mailing-address" xmlns:employment="http://www.cienciavitae.pt/ns/employment" xmlns:funding="http://www.cienciavitae.pt/ns/funding" xmlns:distinction="http://www.cienciavitae.pt/ns/distinction" xmlns:person-info="http://www.cienciavitae.pt/ns/person-info" xmlns:version="http://www.cienciavitae.pt/ns/version" xmlns:common="http://www.cienciavitae.pt/ns/common" xmlns:degree="http://www.cienciavitae.pt/ns/degree" xmlns:resume="http://www.cienciavitae.pt/ns/resume" xmlns:search="http://www.cienciavitae.pt/ns/search" xmlns:author-identifier="http://www.cienciavitae.pt/ns/author-identifier" xmlns:domain-activity="http://www.cienciavitae.pt/ns/domain-activity" xmlns:phone-number="http://www.cienciavitae.pt/ns/phone-number" xmlns:language-competency="http://www.cienciavitae.pt/ns/language-competency" xmlns:person="http://www.cienciavitae.pt/ns/person" common:last-modified-date="2021-09-30T14:29:11" language="pt_PT">
+    <identifying-info:identifying-info>
+      <person-info:person-info>
+        <person-info:full-name>João Gonçalves Fonseca</person-info:full-name>
+        <person-info:names>João</person-info:names>
+        <person-info:surnames>Gonçalves Fonseca</person-info:surnames>
+        <person-info:date-of-birth privacy-level="privado"/>
+        <person-info:gender privacy-level="privado">
+        </person-info:gender>
+        <person-info:photography privacy-level="privado">
+        </person-info:photography>
+      </person-info:person-info>
+      <citation-name:citation-names total="1">
+        <citation-name:citation-name id="675" privacy-level="publico" source-name="Ciência Vitae" common:last-modified-date="2021-02-16T10:53:14" preferred-citation-name="true">Fonseca, João</citation-name:citation-name>
+      </citation-name:citation-names>
+      <author-identifier:author-identifiers total="1">
+        <author-identifier:author-identifier id="1616" privacy-level="publico" source-name="Ciência Vitae" common:last-modified-date="2021-02-16T10:53:14">
+          <author-identifier:identifier-type code="CIENCIAID">Ciência ID</author-identifier:identifier-type>
+          <author-identifier:identifier>1D17-89D5-91E8</author-identifier:identifier>
+        </author-identifier:author-identifier>
+      </author-identifier:author-identifiers>
+    </identifying-info:identifying-info>
+    <degree:degrees total="1" common:last-modified-date="2021-02-16T11:41:04">
+      <degree:degree id="2474" privacy-level="publico" source-name="Ciência Vitae" common:last-modified-date="2021-02-16T11:41:04">
+        <degree:degree-type code="2">Licenciatura</degree:degree-type>
+        <degree:degree-code>0233</degree:degree-code>
+        <degree:degree-name>Engenharia Civil</degree:degree-name>
+        <common:institutions total="1">
+          <common:institution>
+            <common:institution-name>Universidade do Porto Faculdade de Engenharia</common:institution-name>
+            <common:institution-address>
+              <common:city>Porto</common:city>
+              <common:region>Porto</common:region>
+              <common:country code="PT">Portugal</common:country>
+            </common:institution-address>
+            <common:institution-sector code="S01">Ensino</common:institution-sector>
+            <common:institution-identifier>
+              <common:identifier>112048</common:identifier>
+              <common:type>RINGGOLD</common:type>
+            </common:institution-identifier>
+            <common:institution-other-identifiers total="3">
+              <common:institution-identifier>
+                <common:identifier>1105</common:identifier>
+                <common:type>DGEEC</common:type>
+              </common:institution-identifier>
+              <common:institution-identifier>
+                <common:identifier>000000040392388X</common:identifier>
+                <common:type>ISNI</common:type>
+              </common:institution-identifier>
+              <common:institution-identifier>
+                <common:identifier>600027716</common:identifier>
+                <common:type>NIF</common:type>
+              </common:institution-identifier>
+            </common:institution-other-identifiers>
+          </common:institution>
+        </common:institutions>
+        <degree:degree-status code="3">Concluído</degree:degree-status>
+        <degree:end-date year="2017"/>
+      </degree:degree>
+    </degree:degrees>
+    <employment:employments total="1" common:last-modified-date="2019-10-30T11:58:11">
+      <employment:employment id="716" privacy-level="publico" source-name="Ciência ID" common:last-modified-date="2019-10-30T11:58:11">
+        <employment:employment-category code="T01">
+          <employment:value>Ciência</employment:value>
+        </employment:employment-category>
+        <common:institution>
+          <common:institution-name>ISCTE Business School</common:institution-name>
+          <common:institution-address>
+            <common:city>Lisboa</common:city>
+            <common:country code="PT">Portugal</common:country>
+          </common:institution-address>
+          <common:institution-sector code="S01">Ensino</common:institution-sector>
+          <common:institution-identifier>
+            <common:identifier>121424</common:identifier>
+            <common:type>RINGGOLD</common:type>
+          </common:institution-identifier>
+          <common:institution-other-identifiers total="1">
+            <common:institution-identifier>
+              <common:identifier>0000000097156132</common:identifier>
+              <common:type>ISNI</common:type>
+            </common:institution-identifier>
+          </common:institution-other-identifiers>
+        </common:institution>
+        <employment:position-type code="T01V01">
+          <employment:value>Investigação</employment:value>
+        </employment:position-type>
+        <employment:position-title code="T01V01C11">Investigador</employment:position-title>
+        <employment:start-date year="1985" month="12" day="17"/>
+      </employment:employment>
+    </employment:employments>
+    <funding:fundings total="5" common:last-modified-date="2021-09-30T14:26:01">
+      <funding:funding favorite="false" id="2964" privacy-level="publico" source-name="SCIPROJ" common:last-modified-date="2021-09-30T14:26:01">
+        <funding:funding-category code="C">Projeto</funding:funding-category>
+        <funding:project-title>How a Nation is Born: Reconstructing Four Centuries of Brazilian Economic Growth</funding:project-title>
+        <funding:project-description>This project reconstructs series for Brazil’s population, prices, wages, welfare ratios, gross domestic product GDP, and GDP per capita from the seventeenth century to 1920. This is the first reconstruction of consistent, annual population and economic series for this period and will change the understanding that we have today of Brazil’s historical economic growth. This project will be conducted at the Institute of Social Sciences ICS of the University of Lisbon, under the supervision of Nuno Palma, with Jaime Reis as a member of the board. Long-run GDP per capita series are central to economic growth research, to test competing hypotheses about why nations grow and decline, and for main debates in comparative historical development, such as the great divergence and the colonial origins debates. Until today, however, Brazil has been excluded from these areas of research. This project intends to bridge this gap using known figures in the literature, recently digitized archival sources, and novel archival research in the Overseas Historical Archive and the Torre do Tombo National Archive in Portugal. In addition to providing the first series of four centuries of Brazilian economic growth, it will contribute to a number of debates in the specialized and interdisciplinary literatures and generate open-access databases with the reconstructed time series.</funding:project-description>
+        <funding:start-date year="2022" month="09" day="01"/>
+        <funding:end-date year="2024" month="08" day="31"/>
+        <funding:start-date-participation year="2022" month="09" day="01"/>
+        <funding:status code="E">Em curso</funding:status>
+        <common:funding-institutions total="1">
+          <common:institution>
+            <common:institution-name>European Union</common:institution-name>
+            <common:institution-address>
+              <common:city>Brussel</common:city>
+              <common:country code="BE">Bélgica</common:country>
+            </common:institution-address>
+            <common:institution-sector code="S05">Administração Pública</common:institution-sector>
+            <common:institution-identifier>
+              <common:identifier>84474</common:identifier>
+              <common:type>RINGGOLD</common:type>
+            </common:institution-identifier>
+            <common:institution-other-identifiers total="1">
+              <common:institution-identifier>
+                <common:identifier>0000000122904914</common:identifier>
+                <common:type>ISNI</common:type>
+              </common:institution-identifier>
+            </common:institution-other-identifiers>
+          </common:institution>
+        </common:funding-institutions>
+        <funding:program-name>H2020</funding:program-name>
+        <funding:total-amount currency="EUR">159815.05</funding:total-amount>
+        <funding:competitive>false</funding:competitive>
+        <funding:funding-renewable>false</funding:funding-renewable>
+        <funding:funding-identifiers total="1">
+          <funding:funding-identifier>
+            <funding:reference>101031282</funding:reference>
+            <funding:relationship-type code="P">Próprio</funding:relationship-type>
+          </funding:funding-identifier>
+        </funding:funding-identifiers>
+      </funding:funding>
+      <funding:funding favorite="false" id="2965" privacy-level="publico" source-name="SCIPROJ" common:last-modified-date="2021-09-30T14:23:36">
+        <funding:funding-category code="C">Projeto</funding:funding-category>
+        <funding:project-title>Design and development of exosomes with brush type architecture as RNA delivery vectors for active targeting of blood brain barrier BBB</funding:project-title>
+        <funding:project-description>MicroRNAs miRs are identified as significant regulators in modulating brain functions in central nervous system CNS disorders like Alzheimer’s disease AD, Huntington’s and Parkinson’s disease PD and amyotropic lateral sclerosis. Sustained delivery of miRNAs to brain could be an excellent strategy to regulate gene expressions affected in the progressive neurodegenerative diseases. Highly biocompatible nanocarriers like extracellular vesicles eg: exosomes are an excellent choice as delivery vehicles for miRs but their short half life in systemic circulation and difficulty in crossing BBB limits the application. ExoBBB proposes to use high density polymer brushes to maximise RNA capture and stability, confer biofunctionality, stealth behaviour and active targeting to CNS. Density and chemical composition of these polymer brushes can be tuned precisely to attain optimum physicochemical features necessary for active targeting of BBB. Grafting of polymer brushes over exosomes can impart a star shaped architecture which in turn has been proven effective for neuronal targeting. In addition, these brushes can offer abundant surface functionalities for the conjugation of active targeting ligands. Dual targeting ability of the polymer brush chains will be evaluated by surface modification with peptides which can actively target BBB and neurons. The aim of ExoBBB is to design highly stable and efficient cationic polymer brush-based RNA delivery vectors that can be grafted on safe and biocompatible nanoparticles like exosomes for brain targeting and regulation of neuronal cell phenotype for prolonged periods of time.</funding:project-description>
+        <funding:start-date year="2022" month="05" day="01"/>
+        <funding:end-date year="2024" month="04" day="30"/>
+        <funding:start-date-participation year="2022" month="05" day="01"/>
+        <funding:end-date-participation year="2024" month="04" day="30"/>
+        <funding:status code="E">Em curso</funding:status>
+        <common:funding-institutions total="1">
+          <common:institution>
+            <common:institution-name>European Union</common:institution-name>
+            <common:institution-address>
+              <common:city>Brussel</common:city>
+              <common:country code="BE">Bélgica</common:country>
+            </common:institution-address>
+            <common:institution-sector code="S05">Administração Pública</common:institution-sector>
+            <common:institution-identifier>
+              <common:identifier>84474</common:identifier>
+              <common:type>RINGGOLD</common:type>
+            </common:institution-identifier>
+            <common:institution-other-identifiers total="1">
+              <common:institution-identifier>
+                <common:identifier>0000000122904914</common:identifier>
+                <common:type>ISNI</common:type>
+              </common:institution-identifier>
+            </common:institution-other-identifiers>
+          </common:institution>
+        </common:funding-institutions>
+        <funding:program-name>H2020</funding:program-name>
+        <funding:year-awarded>2022</funding:year-awarded>
+        <funding:total-amount currency="EUR">159815.05</funding:total-amount>
+        <funding:competitive>false</funding:competitive>
+        <funding:funding-renewable>false</funding:funding-renewable>
+        <funding:funding-identifiers total="1">
+          <funding:funding-identifier>
+            <funding:reference>101019325</funding:reference>
+            <funding:relationship-type code="P">Próprio</funding:relationship-type>
+          </funding:funding-identifier>
+        </funding:funding-identifiers>
+      </funding:funding>
+      <funding:funding favorite="false" id="2966" privacy-level="publico" source-name="SCIPROJ" common:last-modified-date="2021-09-30T14:23:36">
+        <funding:funding-category code="C">Projeto</funding:funding-category>
+        <funding:project-title>Neural mechanism underlying the central regulation of male sexual arousal and ejaculation</funding:project-title>
+        <funding:project-description>Sexual behavior patterns are unique among the behavioral repertoire of animals. Sex serves no survival advantage for the individual per se, but is vital for species preservation.  To this end, evolution has hedonically biased animals to engage in behaviors that culminate in the conspecific transfer of genetic material. Male sexual behavior is characterized by distinct phases in this behavioral action sequence leading up to ejaculation. Lesions of the medial preoptic area MPOA, an anterior extension of the hypothalamus, in rodents have been shown to eliminate both reward-seeking, or appetitive female pursuit and anogenital investigation, and reward-consuming, or consummatory mounting, intromissions, and ejaculation, male sexual behaviors. Furthermore, focal lesion studies and physiological evidence suggests the presence of separate populations within the MPOA mediating the control of these two phases, and behavioral evidence points to the idea that the performance of appetitive and consummatory behaviors are reciprocally related. However, the mechanistic role of the MPOA in controlling downstream circuitry facilitating male sexual arousal, copulation, and the interaction of these dimensions of behavior has not been explored.  This proposal aims to understand how male sexual arousal and copulatory performance are encoded in the brain, utilizing activity-dependent genetic labeling approaches, in vivo calcium imaging, causal optogenetic manipulation of neuronal subpopulations, and genetic-based tracing methods.  The project will be the first to mechanistically address how the brain provides descending control over male arousal and ejaculation, exposing potential central mechanisms that could be acted on for the treatment of sexual dysfunction.</funding:project-description>
+        <funding:start-date year="2022" month="09" day="01"/>
+        <funding:end-date year="2024" month="08" day="31"/>
+        <funding:start-date-participation year="2022" month="09" day="01"/>
+        <funding:end-date-participation year="2024" month="08" day="31"/>
+        <funding:status code="E">Em curso</funding:status>
+        <common:funding-institutions total="1">
+          <common:institution>
+            <common:institution-name>European Union</common:institution-name>
+            <common:institution-address>
+              <common:city>Brussel</common:city>
+              <common:country code="BE">Bélgica</common:country>
+            </common:institution-address>
+            <common:institution-sector code="S05">Administração Pública</common:institution-sector>
+            <common:institution-identifier>
+              <common:identifier>84474</common:identifier>
+              <common:type>RINGGOLD</common:type>
+            </common:institution-identifier>
+            <common:institution-other-identifiers total="1">
+              <common:institution-identifier>
+                <common:identifier>0000000122904914</common:identifier>
+                <common:type>ISNI</common:type>
+              </common:institution-identifier>
+            </common:institution-other-identifiers>
+          </common:institution>
+        </common:funding-institutions>
+        <funding:program-name>H2020</funding:program-name>
+        <funding:year-awarded>2022</funding:year-awarded>
+        <common:institutions total="1">
+          <common:institution>
+            <common:institution-name>Fundação Champalimaud</common:institution-name>
+            <common:institution-address>
+              <common:city>Lisbon</common:city>
+              <common:region>Lisboa</common:region>
+              <common:country code="PT">Portugal</common:country>
+            </common:institution-address>
+            <common:institution-sector code="S00">Outro</common:institution-sector>
+            <common:institution-identifier>
+              <common:identifier>247170</common:identifier>
+              <common:type>RINGGOLD</common:type>
+            </common:institution-identifier>
+            <common:institution-other-identifiers total="2">
+              <common:institution-identifier>
+                <common:identifier>0000000404539636</common:identifier>
+                <common:type>ISNI</common:type>
+              </common:institution-identifier>
+              <common:institution-identifier>
+                <common:identifier>http://dx.doi.org/10.13039/501100014069</common:identifier>
+                <common:type>FUNDREF</common:type>
+              </common:institution-identifier>
+            </common:institution-other-identifiers>
+          </common:institution>
+        </common:institutions>
+        <funding:total-amount currency="EUR">159815.05</funding:total-amount>
+        <funding:competitive>false</funding:competitive>
+        <funding:funding-renewable>false</funding:funding-renewable>
+        <funding:funding-identifiers total="1">
+          <funding:funding-identifier>
+            <funding:reference>101030857</funding:reference>
+            <funding:relationship-type code="P">Próprio</funding:relationship-type>
+          </funding:funding-identifier>
+        </funding:funding-identifiers>
+      </funding:funding>
+      <funding:funding favorite="false" id="2967" privacy-level="publico" source-name="SCIPROJ" common:last-modified-date="2021-09-30T14:23:36">
+        <funding:funding-category code="C">Projeto</funding:funding-category>
+        <funding:project-title>Selenium – A non-toxic and stable material for future tandem solar cells</funding:project-title>
+        <funding:project-description>Clean energy is crucial for a carbon neutral European continent, and wind, hydropower, geothermal, biomass, and solar energy conversion will generate hundreds of billions economic activity in the coming years. Among these, photovoltaics PV plays a crucial part in electricity generation directly transformed from sunlight. Recently, the efficiency of the dominant PV technology, Si, has reached over 26%, which is near the 29.4% theoretical efficiency limit for single-junction solar cells. In order to overcome this limit, the tandem concept that minimizes thermalization losses of photo-excited carriers has been successfully proven with multi-junction cells, where different band gaps are stacked in series. Over the past decades, the main challenge has been the lack of an efficient, long-term stable, low cost, and process compatible top sub-cell. Recently, selenium Se became an attractive option because of its suitable high bandgap , feasible process at low temperature, and reported efficiency.     
+This proposal SeNTASC aims at developing selenium absorber photovoltaic Se PV top subcell stacking with high-efficiency CuIn,GaSe2 CIGS bottom subcell toward long-term stable and high-efficiency tandem solar cells by implementing novel approaches in buffer layer bandgap modulation, advanced hole-selective metal oxide layer modification, and finally achieving an inverted bifacial Se PV. The above-mentioned strategies will lead to ~10 % efficiency with open circuit voltage over 1 Volt with bandgap around 1.95 eV in an inverted superstrate configuration. Reaching these objectives, Se will be established as an excellent candidate for a top subcell in a tandem with high-quality CIGS solar cells.  In this configuration, a maximum theoretical efficiency near 40% is expected.</funding:project-description>
+        <funding:start-date year="2022" month="04" day="01"/>
+        <funding:end-date year="2024" month="03" day="31"/>
+        <funding:start-date-participation year="2022" month="04" day="01"/>
+        <funding:end-date-participation year="2024" month="03" day="31"/>
+        <funding:status code="E">Em curso</funding:status>
+        <common:funding-institutions total="1">
+          <common:institution>
+            <common:institution-name>European Union</common:institution-name>
+            <common:institution-address>
+              <common:city>Brussel</common:city>
+              <common:country code="BE">Bélgica</common:country>
+            </common:institution-address>
+            <common:institution-sector code="S05">Administração Pública</common:institution-sector>
+            <common:institution-identifier>
+              <common:identifier>84474</common:identifier>
+              <common:type>RINGGOLD</common:type>
+            </common:institution-identifier>
+            <common:institution-other-identifiers total="1">
+              <common:institution-identifier>
+                <common:identifier>0000000122904914</common:identifier>
+                <common:type>ISNI</common:type>
+              </common:institution-identifier>
+            </common:institution-other-identifiers>
+          </common:institution>
+        </common:funding-institutions>
+        <funding:program-name>H2020</funding:program-name>
+        <funding:year-awarded>2022</funding:year-awarded>
+        <common:institutions total="1">
+          <common:institution>
+            <common:institution-name>International Iberian Nanotechnology Laboratory</common:institution-name>
+            <common:institution-address>
+              <common:city>Braga</common:city>
+              <common:region>Braga</common:region>
+              <common:country code="PT">Portugal</common:country>
+            </common:institution-address>
+            <common:institution-sector code="S01">Ensino</common:institution-sector>
+            <common:institution-identifier>
+              <common:identifier>246702</common:identifier>
+              <common:type>RINGGOLD</common:type>
+            </common:institution-identifier>
+            <common:institution-other-identifiers total="1">
+              <common:institution-identifier>
+                <common:identifier>0000000405216935</common:identifier>
+                <common:type>ISNI</common:type>
+              </common:institution-identifier>
+            </common:institution-other-identifiers>
+          </common:institution>
+        </common:institutions>
+        <funding:total-amount currency="EUR">159815.05</funding:total-amount>
+        <funding:competitive>false</funding:competitive>
+        <funding:funding-renewable>false</funding:funding-renewable>
+        <funding:funding-identifiers total="1">
+          <funding:funding-identifier>
+            <funding:reference>101038086</funding:reference>
+            <funding:relationship-type code="P">Próprio</funding:relationship-type>
+          </funding:funding-identifier>
+        </funding:funding-identifiers>
+      </funding:funding>
+      <funding:funding favorite="false" id="2968" privacy-level="publico" source-name="SCIPROJ" common:last-modified-date="2021-09-30T14:23:36">
+        <funding:funding-category code="C">Projeto</funding:funding-category>
+        <funding:project-title>Integrated TRM System for the Seismic Strengthening of Masonry Heritage</funding:project-title>
+        <funding:project-description>Traditional masonry buildings constitutes the greatest part of the building stock in Europe, involving constructions with high historical, architectural and cultural value. These buildings are particularly susceptible to horizontal actions, as demonstrated during past many seismic events, thus requiring rehabilitation and strengthening actions in order to improve their structural behaviour. Within this scope, innovative strengthening techniques, such as Textile Reinforced Mortar TRM composite materials, have been adopted during the last years. TRMs have shown to be quite effective for retrofitting of masonry, but the effectiveness of this technique depends on several parameters. In particular, a key point to the success of the strengthening is the use of connectors to fix the reinforcing layer and prevent it from debonding or delamination, which would turn the strengthening measure useless.
+Currently, connectors are used in TRM applications in an empirical way and no commonly accepted guidelines are available regarding the design, practical installation and mechanical performance of the integrated TRM/connector strengthening system. Thus, the role of mechanical anchors in the performance of the TRM system needs to be characterized and to be taken into account for a rational and efficient design of TRM systems, allowing to reduce the uncertainty of its mechanical behaviour and increasing the confidence in the technique.
+The aim of the project is the development of recommendations to properly design TRM-strengthened interventions by the rational application of connectors for the retrofitting of masonry buildings exposed to seismic actions. This will be achieved by the integration of robust experimental results and advanced numerical modelling of the TRM/connector system, supported
+on an initial state of the review. The combined experimental-numerical approach is the core of the project, which will be complemented by management and dissemination tasks.</funding:project-description>
+        <funding:start-date year="2022" month="03" day="18"/>
+        <funding:end-date year="2024" month="03" day="17"/>
+        <funding:start-date-participation year="2022" month="03" day="18"/>
+        <funding:end-date-participation year="2024" month="03" day="17"/>
+        <funding:status code="E">Em curso</funding:status>
+        <common:funding-institutions total="1">
+          <common:institution>
+            <common:institution-name>European Union</common:institution-name>
+            <common:institution-address>
+              <common:city>Brussel</common:city>
+              <common:country code="BE">Bélgica</common:country>
+            </common:institution-address>
+            <common:institution-sector code="S05">Administração Pública</common:institution-sector>
+            <common:institution-identifier>
+              <common:identifier>84474</common:identifier>
+              <common:type>RINGGOLD</common:type>
+            </common:institution-identifier>
+            <common:institution-other-identifiers total="1">
+              <common:institution-identifier>
+                <common:identifier>0000000122904914</common:identifier>
+                <common:type>ISNI</common:type>
+              </common:institution-identifier>
+            </common:institution-other-identifiers>
+          </common:institution>
+        </common:funding-institutions>
+        <funding:program-name>H2020</funding:program-name>
+        <funding:year-awarded>2022</funding:year-awarded>
+        <common:institutions total="1">
+          <common:institution>
+            <common:institution-name>Universidade do Minho</common:institution-name>
+            <common:institution-address>
+              <common:city>Braga</common:city>
+              <common:region>Braga</common:region>
+              <common:country code="PT">Portugal</common:country>
+            </common:institution-address>
+            <common:institution-sector code="S01">Ensino</common:institution-sector>
+            <common:institution-identifier>
+              <common:identifier>56059</common:identifier>
+              <common:type>RINGGOLD</common:type>
+            </common:institution-identifier>
+            <common:institution-other-identifiers total="4">
+              <common:institution-identifier>
+                <common:identifier>1000</common:identifier>
+                <common:type>DGEEC</common:type>
+              </common:institution-identifier>
+              <common:institution-identifier>
+                <common:identifier>000000012159175X</common:identifier>
+                <common:type>ISNI</common:type>
+              </common:institution-identifier>
+              <common:institution-identifier>
+                <common:identifier>502011378</common:identifier>
+                <common:type>NIF</common:type>
+              </common:institution-identifier>
+              <common:institution-identifier>
+                <common:identifier>http://dx.doi.org/10.13039/501100008814</common:identifier>
+                <common:type>FUNDREF</common:type>
+              </common:institution-identifier>
+            </common:institution-other-identifiers>
+          </common:institution>
+        </common:institutions>
+        <funding:total-amount currency="EUR">147815.05</funding:total-amount>
+        <funding:competitive>false</funding:competitive>
+        <funding:funding-renewable>false</funding:funding-renewable>
+        <funding:funding-identifiers total="1">
+          <funding:funding-identifier>
+            <funding:reference>101038043</funding:reference>
+            <funding:relationship-type code="P">Próprio</funding:relationship-type>
+          </funding:funding-identifier>
+        </funding:funding-identifiers>
+      </funding:funding>
+    </funding:fundings>
+    <groups:groups/>
+  </curriculum:curriculum>
