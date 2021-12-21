@@ -8,11 +8,11 @@
 	<groupId>pt.rcaap</groupId>
 	<artifactId>cienciavitae.model</artifactId>
 	<version>1.0.0</version>
+	<packaging>jar</packaging>
 
 	<name>cienciavitae.model</name>
 	<description>A simple cienciavitae.curriculum.model.</description>
-	<!-- FIXME change it to the project's website -->
-	<url>http://www.example.com</url>
+	<url>https://github.com/fccn/rcaap-cienciavitae-model</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -112,11 +112,4 @@
 		</pluginManagement>
 	</build>
 
-	<reporting>
-		<plugins>
-			<plugin>
-				<artifactId>maven-project-info-reports-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</reporting>
 </project>
