@@ -8,7 +8,7 @@ You can use maven pom.xml to include this library in your project. Just add this
     <dependency>
       	<groupId>pt.rcaap</groupId>
       	<artifactId>cienciavitae.model</artifactId>
-      	<version>1.0</version>
+      	<version>1.0.0</version>
      </dependency>
 ```
 
