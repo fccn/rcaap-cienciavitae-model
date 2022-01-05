@@ -1,5 +1,5 @@
 # RCAAP version of Cienciavitae Model
-This is the Jaxb generated model and a simple client for Ciencia Vitae Rest API.
+This is the Jaxb generated model and a simple client for Ciencia Vitae Rest API (https://api.cienciavitae.pt/docs/).
 
 ## Instalation using Maven
 You can use maven pom.xml to include this library in your project. Just add this to your `<dependencies>`:
